@@ -19,7 +19,7 @@ public class Pruebas {
         
         a.registrarCliente("daniel", "Quintero", "Calle 2", "2313456", "daniel@gmail.com");
         
-        System.out.println("elcaido nuevamente");
+        System.out.println("elcaido nuevamentdeeffrfre");
     }
     
 }
