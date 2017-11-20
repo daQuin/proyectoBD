@@ -12,13 +12,13 @@ package DTO;
 public class CitaDTO {
     private int id;
     private String fecha;
-    private int idCliente;
-    private int idPromocion;
+    private ClienteDTO idCliente;
+    private PromocionDTO idPromocion;
 
     public CitaDTO() {
     }
 
-    public CitaDTO(String fecha, int idCliente, int idPromocion) {
+    public CitaDTO(String fecha, ClienteDTO idCliente, PromocionDTO idPromocion) {
         this.fecha = fecha;
         this.idCliente = idCliente;
         this.idPromocion = idPromocion;
@@ -40,19 +40,19 @@ public class CitaDTO {
         this.fecha = fecha;
     }
 
-    public int getIdCliente() {
+    public ClienteDTO getIdCliente() {
         return idCliente;
     }
 
-    public void setIdCliente(int idCliente) {
+    public void setIdCliente(ClienteDTO idCliente) {
         this.idCliente = idCliente;
     }
 
-    public int getIdPromocion() {
+    public PromocionDTO getIdPromocion() {
         return idPromocion;
     }
 
-    public void setIdPromocion(int idPromocion) {
+    public void setIdPromocion(PromocionDTO idPromocion) {
         this.idPromocion = idPromocion;
     }
     

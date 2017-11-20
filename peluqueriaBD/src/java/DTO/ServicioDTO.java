@@ -13,12 +13,12 @@ public class ServicioDTO {
     
     private int id;
     private String nombre;
-    private String valor;
+    private double valor;
     
     public ServicioDTO(){
     }
 
-    public ServicioDTO(String nombre, String valor) {
+    public ServicioDTO(String nombre, double valor) {
         this.nombre = nombre;
         this.valor = valor;
     }
@@ -39,11 +39,11 @@ public class ServicioDTO {
         this.nombre = nombre;
     }
 
-    public String getValor() {
+    public double getValor() {
         return valor;
     }
 
-    public void setValor(String valor) {
+    public void setValor(Double valor) {
         this.valor = valor;
     }
     

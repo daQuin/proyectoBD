@@ -33,8 +33,8 @@ public class MySQLCitaDAO extends MySQLconexion  implements INTERFAZ.ICitaDTO{
                     + ") values (0,?,0,0)");
             System.out.println("Entramos a registrar una cita");
             stmt.setString(1, a.getFecha());
-            stmt.setInt(2, a.getIdCliente());
-            stmt.setInt(3, a.getIdPromocion());
+            stmt.setInt(2, a.getIdCliente().getId());
+            stmt.setInt(3, a.getIdPromocion().getId());
 
             int aux = stmt.executeUpdate();
             if(aux > 0){
@@ -125,10 +125,11 @@ public class MySQLCitaDAO extends MySQLconexion  implements INTERFAZ.ICitaDTO{
             ResultSet a = stmt.executeQuery();
             while (a.next()) {
                 aux = new CitaDTO();
-
+                MySQLClienteDAO c = new MySQLClienteDAO(false);
+                MySQLPromocionDAO  p= new MySQLPromocionDAO(false);
                 aux.setFecha(a.getString(1));
-                aux.setIdCliente(a.getInt(2));
-                aux.setIdPromocion(a.getInt(3));
+                aux.setIdCliente(c.consultarCliente(a.getInt(2)));
+                aux.setIdPromocion(p.consultarPromocion(a.getInt(3)));
              }
 
             a.close();
@@ -138,6 +139,9 @@ public class MySQLCitaDAO extends MySQLconexion  implements INTERFAZ.ICitaDTO{
             e.printStackTrace();
         }
         return aux;}
+    
+      
+    
     
     
 }

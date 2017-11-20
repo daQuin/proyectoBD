@@ -19,7 +19,7 @@ public class FacturaDTO {
     public FacturaDTO() {
     }
 
-    public FacturaDTO(double totalPagar, String tipoPago, String fecha, ClienteDTO idCliente) {
+    public FacturaDTO( String tipoPago, String fecha, ClienteDTO idCliente, double totalPagar) {
        
         this.totalPagar = totalPagar;
         this.tipoPago = tipoPago;
