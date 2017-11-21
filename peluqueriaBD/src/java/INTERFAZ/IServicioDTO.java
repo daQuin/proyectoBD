@@ -6,6 +6,7 @@
 package INTERFAZ;
 
 import DTO.ServicioDTO;
+import java.util.ArrayList;
 
 /**
  *
@@ -16,6 +17,7 @@ public interface IServicioDTO {
   public boolean eliminarServicio(int id);
   public boolean actualizarServicio(int id, String nombre,double valor);
   public ServicioDTO consultarServicio(int id);
+  public ArrayList<ServicioDTO> listarServicioDTO();
 
     
 }

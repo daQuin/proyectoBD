@@ -19,10 +19,10 @@ public class ProductoDTO {
    public ProductoDTO(){
    }
    
-    public ProductoDTO( int cantidad, double valor, String color, String nombre) {
+    public ProductoDTO(  String nombre, String descripcion,int cantidad, double valor) {
         this.cantidad = cantidad;
         this.valor = valor;
-        this.descripcion = color;
+        this.descripcion = descripcion;
         this.nombre = nombre;
     }
     
@@ -54,8 +54,8 @@ public class ProductoDTO {
         return descripcion;
     }
 
-    public void setDescripcion(String color) {
-        this.descripcion = color;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public String getNombre() {

@@ -4,38 +4,33 @@
  * and open the template in the editor.
  */
 package DAO;
+import DTO.ServicioDTO;
 
-import DTO.ProductoDTO;
-import INTERFAZ.IProductoDTO;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 /**
  *
- * @author DELL
+ * @author Dismar
  */
-public class MySQLProductoDAO extends MySQLconexion implements IProductoDTO {
+public class MySQLServicioDAO  extends MySQLconexion implements INTERFAZ.IServicioDTO{
     
-     public MySQLProductoDAO(boolean keepConnection) {
+    public MySQLServicioDAO(boolean keepConnection) {
         super(keepConnection);
     }
-
-  @Override
-    public boolean registrarProducto(ProductoDTO a) {
+    
+     @Override
+    public boolean registrarServicio(ServicioDTO a) {
         boolean exito = false;
         try {
             PreparedStatement stmt = null;
-            stmt = super.getConn().prepareStatement("insert into producto (id,nombre,descripcion,cantidad,"
-                    + "valor"
-                    + ") values (0,?,?,0,0)");
+            stmt = super.getConn().prepareStatement("insert into servicio (id,nombre,valor)"
+                    + " values (0,?,0)");
             stmt.setString(1, a.getNombre());
-            stmt.setString(2, a.getDescripcion());
-            stmt.setInt(3, a.getCantidad());
-            stmt.setDouble(4, a.getValor());
+            stmt.setDouble(2, a.getValor());
 
             int aux = stmt.executeUpdate();
             if (aux > 0) {
@@ -43,14 +38,14 @@ public class MySQLProductoDAO extends MySQLconexion implements IProductoDTO {
                 stmt.close();
             }
         } catch (Exception ex) {
-            Logger.getLogger(MySQLProductoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MySQLServicioDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             if (!keepConnection) {
                 if (super.getConn() != null) {
                     try {
                         super.getConn().close();
                     } catch (Exception ex) {
-                        Logger.getLogger(MySQLProductoDAO.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(MySQLServicioDAO.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
             }
@@ -59,17 +54,17 @@ public class MySQLProductoDAO extends MySQLconexion implements IProductoDTO {
     }
 
     @Override
-    public boolean eliminarProducto(int id) {
+    public boolean eliminarServicio(int id) {
         PreparedStatement stmt = null;
         boolean exito = false;
         try {
-            stmt = super.getConn().prepareStatement("select id from producto");
+            stmt = super.getConn().prepareStatement("select id from servicio");
             ResultSet aux = stmt.executeQuery();
             while (aux.next()) {
-                ProductoDTO c = new ProductoDTO();
+                ServicioDTO c = new ServicioDTO();
                 c.setId(aux.getInt(1));
                 if (c.getId() == id) {
-                    stmt = super.getConn().prepareStatement("delete from producto where id='" + id + "'");
+                    stmt = super.getConn().prepareStatement("delete from servicio where id='" + id + "'");
                     stmt.executeUpdate();
 
                     exito = true;
@@ -84,7 +79,7 @@ public class MySQLProductoDAO extends MySQLconexion implements IProductoDTO {
                     try {
                         super.getConn().close();
                     } catch (SQLException ex) {
-                        Logger.getLogger(MySQLProductoDAO.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(MySQLServicioDAO.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
             }
@@ -94,17 +89,15 @@ public class MySQLProductoDAO extends MySQLconexion implements IProductoDTO {
     }
 
     @Override
-    public boolean actualizarProducto(int id,  String nombre, String descripcion,int cantidad, double valor) {
+    public boolean actualizarServicio(int id,String nombre, double valor) {
         boolean exito = false;
         PreparedStatement smtm = null;
         try {
-            smtm = super.getConn().prepareStatement("update producto set nombre=?,descripcion=?,"
-                    + "cantidad=?,valor=? where id='" + id + "'");
+            smtm = super.getConn().prepareStatement("update servicio set nombre=?,valor=?"
+                    + " where id='" + id + "'");
 
             smtm.setString(1, nombre);
-            smtm.setString(2, descripcion);
-            smtm.setInt(3, cantidad);
-            smtm.setDouble(4, valor);
+            smtm.setDouble(2, valor);
 
             int total = smtm.executeUpdate();
             if (total > 0) {
@@ -117,20 +110,18 @@ public class MySQLProductoDAO extends MySQLconexion implements IProductoDTO {
     }
 
     @Override
-    public ProductoDTO consultarProducto(int cod) {
-        ProductoDTO aux = null;
+    public ServicioDTO consultarServicio(int cod) {
+        ServicioDTO aux = null;
         PreparedStatement stmt = null;
         try {
-            stmt = super.getConn().prepareStatement("select * from producto where  "
+            stmt = super.getConn().prepareStatement("select * from cservicio where  "
                     + "id='" + cod + "'");
             ResultSet a = stmt.executeQuery();
             while (a.next()) {
-                aux = new ProductoDTO();
+                aux = new ServicioDTO();
 
                 aux.setNombre(a.getString(1));
-                aux.setDescripcion(a.getString(2));
-                aux.setCantidad(a.getInt(3));
-                aux.setValor(a.getDouble(4));
+                aux.setValor(a.getDouble(2));
             }
 
             a.close();
@@ -143,24 +134,22 @@ public class MySQLProductoDAO extends MySQLconexion implements IProductoDTO {
     }
 
     @Override
-    public ArrayList<ProductoDTO> listarProductoDTO() {
+    public ArrayList<ServicioDTO> listarServicioDTO() {
 
-        ArrayList<ProductoDTO> a = null;
+        ArrayList<ServicioDTO> a = null;
         PreparedStatement stmt = null;
         PreparedStatement auxi = null;
 
         try {
-            a = new ArrayList<ProductoDTO>();
-            stmt = super.getConn().prepareStatement("select * from producto");
+            a = new ArrayList<ServicioDTO>();
+            stmt = super.getConn().prepareStatement("select * from servicio");
 
             ResultSet aux = stmt.executeQuery();
             while (aux.next()) {
-                ProductoDTO vis = new ProductoDTO();
+                ServicioDTO vis = new ServicioDTO();
                 vis.setId(aux.getInt(1));
                 vis.setNombre(aux.getString(2));
-                vis.setDescripcion(aux.getString(3));
-                vis.setCantidad(aux.getInt(4));
-                vis.setValor(aux.getDouble(5));
+                vis.setValor(aux.getDouble(3));
                 a.add(vis);
             }
             aux.close();
@@ -171,4 +160,7 @@ public class MySQLProductoDAO extends MySQLconexion implements IProductoDTO {
         return a;
 
     }
+    
+    
+    
 }
