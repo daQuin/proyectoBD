@@ -72,23 +72,28 @@ private FACTORY.DaoFactory factor;
 
     public boolean registrarCliente( String nombres, String apellidos, String direccion, String telefono,
             String correo) {
-        IClienteDTO a = factor.obtenerConexionAsistente(false);
+        IClienteDTO a = factor.obtenerConexionCliente(false);
         ClienteDTO aux = new ClienteDTO(nombres, apellidos, direccion, telefono, correo);
         return a.registrarCliente(aux);
     }
     
     public boolean actualizarCliente(int id, String nombres, String apellidos, String direccion, String telefono,
             String correo){
-        IClienteDTO a = factor.obtenerConexionAsistente(false);
+        IClienteDTO a = factor.obtenerConexionCliente(false);
         return a.actualizarCliente(id, nombres, apellidos, direccion, telefono, correo);
     }
     public boolean eliminarCliente(int id){
-        IClienteDTO a = factor.obtenerConexionAsistente(false);
+        IClienteDTO a = factor.obtenerConexionCliente(false);
         return a.eliminarCliente(id);
     }
     public ClienteDTO consultarCliente(int id){
-        IClienteDTO a = factor.obtenerConexionAsistente(false);
+        IClienteDTO a = factor.obtenerConexionCliente(false);
         return a.consultarCliente(id);
     }
 
+     public ArrayList<ClienteDTO> listarClientes(){
+        IClienteDTO a = factor.obtenerConexionCliente(false);
+        return a.listarClienteDTO();
+    }
+    
           }

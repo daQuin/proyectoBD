@@ -20,7 +20,7 @@ public class DaoFactory {
  public IAdministradorDTO obtenerUsuario(boolean keepConnection) {
         return new MySQLAdministradorDAO(keepConnection);
     }
- public IClienteDTO obtenerConexionAsistente(boolean keepConnection) {
+ public IClienteDTO obtenerConexionCliente(boolean keepConnection) {
         return new MySQLClienteDAO(keepConnection);
     }
  

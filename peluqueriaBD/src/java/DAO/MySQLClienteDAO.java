@@ -14,17 +14,15 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 public class MySQLClienteDAO extends MySQLconexion implements INTERFAZ.IClienteDTO {
 
     public MySQLClienteDAO(boolean keepConnection) {
         super(keepConnection);
     }
 
-
-     @Override
+    @Override
     public boolean registrarCliente(ClienteDTO a) {
-     boolean exito = false;
+        boolean exito = false;
         try {
             PreparedStatement stmt = null;
             stmt = super.getConn().prepareStatement("insert into cliente (id,nombre,apellido,direccion,"
@@ -38,8 +36,8 @@ public class MySQLClienteDAO extends MySQLconexion implements INTERFAZ.IClienteD
             stmt.setString(5, a.getCorreo());
 
             int aux = stmt.executeUpdate();
-            if(aux > 0){
-                exito=true;
+            if (aux > 0) {
+                exito = true;
                 stmt.close();
             }
         } catch (Exception ex) {
@@ -101,7 +99,7 @@ public class MySQLClienteDAO extends MySQLconexion implements INTERFAZ.IClienteD
         boolean exito = false;
         PreparedStatement smtm = null;
         try {
-            smtm = super.getConn().prepareStatement("update asistente set nombres=?,apellidos=?,"
+            smtm = super.getConn().prepareStatement("update cliente set nombres=?,apellidos=?,"
                     + "direccion=?,telefono=?,correo=? where id='" + id + "'");
             System.out.println("Se encuentra actualizando el asistente con id = " + id);
 
@@ -137,7 +135,7 @@ public class MySQLClienteDAO extends MySQLconexion implements INTERFAZ.IClienteD
                 aux.setDireccion(a.getString(3));
                 aux.setTelefono(a.getString(4));
                 aux.setCorreo(a.getString(5));
-             }
+            }
 
             a.close();
             return aux;
@@ -148,6 +146,35 @@ public class MySQLClienteDAO extends MySQLconexion implements INTERFAZ.IClienteD
         return aux;
     }
 
+    @Override
+    public ArrayList<ClienteDTO> listarClienteDTO() {
 
-   
+        ArrayList<ClienteDTO> a = null;
+        PreparedStatement stmt = null;
+        PreparedStatement auxi = null;
+
+        try {
+            a = new ArrayList<ClienteDTO>();
+            stmt = super.getConn().prepareStatement("select * from cliente");
+
+            ResultSet aux = stmt.executeQuery();
+            while (aux.next()) {
+                ClienteDTO vis = new ClienteDTO();
+                vis.setId(aux.getInt(1));
+                vis.setNombres(aux.getString(2));
+                vis.setApellidos(aux.getString(3));
+                vis.setDireccion(aux.getString(4));
+                vis.setTelefono(aux.getString(5));
+                vis.setCorreo(aux.getString(6));
+                a.add(vis);
+            }
+            aux.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return a;
+
+    }
+
 }
