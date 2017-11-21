@@ -20,6 +20,7 @@ public class Pruebas {
         a.registrarCliente("daniel", "Quintero", "Calle 2", "2313456", "daniel@gmail.com");
         System.out.println("ejecutando prueba de actualizacion");
         System.out.println("elcaido nuevamentdeeffrfre");
+        System.out.println("pruebaaa daQuin");
     }
     
 }
