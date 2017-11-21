@@ -7,6 +7,7 @@ package INTERFAZ;
 
 
 import DTO.CitaDTO;
+import java.util.ArrayList;
 
 /**
  *
@@ -15,6 +16,7 @@ import DTO.CitaDTO;
 public interface ICitaDTO {
   public boolean registrarCita(CitaDTO a);
   public boolean eliminarCita(int id);
-  public boolean actualizarCita(int id, String fecha,int idCliente,int idPromocion);
+  public boolean actualizarCita(int id, String fecha,String fechaCreacion, int idCliente,int idPromocion);
   public CitaDTO consultarCita(int id);  
+  public ArrayList<CitaDTO> listarCitaDTO();
 }

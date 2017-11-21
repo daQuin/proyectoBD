@@ -12,17 +12,28 @@ package DTO;
 public class CitaDTO {
     private int id;
     private String fecha;
+    private String fechaCreacion;
     private ClienteDTO idCliente;
     private PromocionDTO idPromocion;
 
     public CitaDTO() {
     }
 
-    public CitaDTO(String fecha, ClienteDTO idCliente, PromocionDTO idPromocion) {
+    public CitaDTO(String fecha, String fechaCreacion, ClienteDTO idCliente, PromocionDTO idPromocion) {
+        this.fechaCreacion=fechaCreacion;
         this.fecha = fecha;
         this.idCliente = idCliente;
         this.idPromocion = idPromocion;
     }
+
+    public String getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+    public void setFechaCreacion(String fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
+    }
+    
 
     public int getId() {
         return id;
@@ -55,10 +66,6 @@ public class CitaDTO {
     public void setIdPromocion(PromocionDTO idPromocion) {
         this.idPromocion = idPromocion;
     }
-    
-    
-    
-     
     
     
 }
