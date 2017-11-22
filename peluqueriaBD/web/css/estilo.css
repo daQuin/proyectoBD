@@ -1,0 +1,111 @@
+
+#iniciarSesion:hover{
+    color:#f56a6a; 
+}
+#btnGuardar:active{
+    transform: scale(0.95);
+    
+}
+
+#btnGuardar:hover{
+    background-color: #f56a6a; 
+    
+}
+
+#Inscribete{
+    background-color:#48A629;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 150px;
+    text-align: center;
+    padding: 5px;
+    font-family: Helvetica,Arial,sans-serif;
+
+
+}
+
+#Inscribete:hover{
+    background-color: #57a93c;
+}
+
+#iniciar{
+    color:white;
+    alignment-baseline: central;
+    font-family: Helvetica,Arial,sans-serif;
+    font-weight: bold;
+    margin: 10px;
+    
+
+}
+
+#menuSesion{
+ 
+    display: none;
+    left:78%;
+    position: absolute;
+    z-index: 4;
+    margin: auto;
+    width: 18%;
+    max-width: 400px;
+    background: #f2f2ff;
+    padding: 10px;
+    padding-bottom: 0px;
+    border: 1px solid rgba(0,0,0,0.2);
+
+    
+}
+
+#boton{
+}
+
+
+#h2{
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 5px;
+    color: rgba(0,0,0,0.5);
+    font-size: 18px;
+}
+
+input{
+
+    display: block;
+    padding: 4px;
+    width: 100%;
+    margin:12px 0 0 0;
+    font-size: 14px;
+}
+
+input[type="submit"]{
+    
+    background: linear-gradient(#ffda63, #ffb94);
+    background-color:#d61117; 
+    border:0;
+    color:white;
+    opacity: 0.8;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 0px;
+    
+    
+}
+
+input[type="submit"]:hover{
+   opacity: 1;
+}
+
+input[type="submit"]:active{
+   transform: scale(0.95);
+}
+
+
+.encabezado{
+    
+    text-align: left! important;
+    font-size: 16px;
+   color: #7f888f;
+}
+
+

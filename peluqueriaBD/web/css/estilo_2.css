@@ -1,0 +1,72 @@
+#textArea{
+    width: 100%;
+    min-height: 100px;
+    max-height: 200px;
+    max-width: 100%;
+    resize: vertical;
+    padding: 0.5em;
+
+     }
+     h4{
+         font-size: 17px;
+         color:#989393;
+     }
+     #newer{
+         position: absolute; 
+         text-align: left; 
+         background-color: #EEEBF2; 
+         border-radius: 5px;  
+         padding: 10px; 
+         width: 20%; 
+         
+     }
+     
+      #newer2{
+         text-align: left; 
+         background-color: #EEEBF2; 
+         border-radius: 5px;  
+         padding: 10px; 
+         width: 33%; 
+         
+     }
+     
+  
+     #new, newfecha{
+         text-decoration:none; 
+         color: rgb(105, 105, 105)!important;
+     }
+
+@media(max-width:1114px){
+    #new{
+        display: none;
+    } 
+    
+    #newfecha{
+        display: none;
+    } 
+    
+    #newer{
+       width: 10%; 
+       background-color: #fcfcfc; 
+    }
+    
+    #newer2{
+       width: 10%; 
+       background-color: #fcfcfc; 
+    }
+    }
+
+@media(max-width:612px){
+ 
+    #espacio{
+        display: none;
+    }
+    
+    #newfecha{
+        display: none;
+    }
+    #nueva{
+        float: none;
+    }
+    
+}

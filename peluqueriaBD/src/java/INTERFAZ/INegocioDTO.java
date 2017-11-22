@@ -24,4 +24,7 @@ public interface INegocioDTO {
        public ClienteDTO consultarCliente(int id);
        
        public ArrayList<ClienteDTO> listarClienteDTO();
+       
+       
+       public boolean registrarProducto(String nombre, String descripcion, int cantidad, int valor);
 }

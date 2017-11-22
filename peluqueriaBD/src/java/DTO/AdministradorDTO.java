@@ -10,6 +10,7 @@ import FACTORY.DaoFactory;
 import INTERFAZ.IAdministradorDTO;
 import java.util.ArrayList;
 import INTERFAZ.IClienteDTO;
+import INTERFAZ.IProductoDTO;
 
 /**
  *
@@ -96,4 +97,13 @@ private FACTORY.DaoFactory factor;
         return a.listarClienteDTO();
     }
     
+     
+     
+         public boolean registrarProducto( String nombre, String Descripcion, int cantidad, int valor) {
+        IProductoDTO a = factor.obtenerConexionProducto(false);
+        ProductoDTO p = new ProductoDTO(nombre, Descripcion, cantidad, valor);
+        return a.registrarProducto(p);
+    }
+     
+     
           }
