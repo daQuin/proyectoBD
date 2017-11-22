@@ -30,6 +30,15 @@
 
                     </ul>
                 </li>
+                   <li>
+                    <span class="opener">Empleado</span>
+                    <ul>
+                        <li><a href="EmpleadoCrear.jsp">Crear</a></li>
+                        <li><a href="EmpleadoConsultar.jsp">Consultar</a></li>
+
+
+                    </ul>
+                </li>
 
                 <li>
                     <span class="opener">Factura</span>

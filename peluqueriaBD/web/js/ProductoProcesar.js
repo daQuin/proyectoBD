@@ -82,12 +82,12 @@ function vaciar() {
 }
 
 
-function eliminarConv(id) {
+function eliminarProducto(id) {
      idconvocatoria= id;
     $.ajax({
-        url: 'convServlet',
+        url: 'productoServlet',
         type: 'POST',
-        data: {eliminarConv: "true", idconvocatoria: id}
+        data: {eliminarProd: "true", idproducto: id}
     }).done(function (sub) {
 
        if ((sub.indexOf('exito') >= 0)) {

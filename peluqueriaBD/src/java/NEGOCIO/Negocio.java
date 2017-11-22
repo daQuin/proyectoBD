@@ -7,6 +7,7 @@ package NEGOCIO;
 
 import DTO.AdministradorDTO;
 import DTO.ClienteDTO;
+import DTO.ProductoDTO;
 import INTERFAZ.INegocioDTO;
 import java.util.ArrayList;
 
@@ -100,6 +101,40 @@ public class Negocio implements INegocioDTO {
 
         } catch (Exception e) {
         }
+        return false;
+
+    }
+
+    @Override
+    public ArrayList<ProductoDTO> listarProducto() {
+   
+         ArrayList<ProductoDTO> a = null;
+        try {
+            a = admin.listarConvocatorias();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return a;
+    
+    
+    }
+
+    @Override
+    public boolean EliminarProducto(int id) {
+
+        try {
+            boolean rta = admin.eliminarProducto(id);
+            if (rta == true) {
+                
+                return rta;
+            } else {
+           
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         return false;
 
     }

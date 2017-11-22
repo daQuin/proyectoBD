@@ -105,5 +105,13 @@ private FACTORY.DaoFactory factor;
         return a.registrarProducto(p);
     }
      
-     
+      public ArrayList<ProductoDTO> listarConvocatorias(){
+        IProductoDTO a = factor.obtenerConexionProducto(false);
+        return a.listarProductoDTO();
+    }
+          public boolean eliminarProducto(int id){
+        IProductoDTO a = factor.obtenerConexionProducto(false);
+        return a.eliminarProducto(id);
+    }
+         
           }

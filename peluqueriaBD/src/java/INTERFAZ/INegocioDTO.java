@@ -6,6 +6,7 @@
 package INTERFAZ;
 
 import DTO.ClienteDTO;
+import DTO.ProductoDTO;
 import java.util.ArrayList;
 
 /**
@@ -27,4 +28,8 @@ public interface INegocioDTO {
        
        
        public boolean registrarProducto(String nombre, String descripcion, int cantidad, int valor);
+       
+        public ArrayList<ProductoDTO> listarProducto();
+        
+        public boolean EliminarProducto(int id);
 }
