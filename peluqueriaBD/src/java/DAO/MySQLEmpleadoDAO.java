@@ -30,10 +30,9 @@ public class MySQLEmpleadoDAO extends MySQLconexion implements INTERFAZ.IEmplead
      boolean exito = false;
         try {
             PreparedStatement stmt = null;
-            stmt = super.getConn().prepareStatement("insert into cliente (id,nombre,apellido,cedula,direccion,"
+            stmt = super.getConn().prepareStatement("insert into empleado (id,nombre,apellido,cedula,direccion,"
                     + "telefono,correo,fechaingreso"
                     + ") values (0,?,?,?,?,?,?,?)");
-            System.out.println("Entramos a registrar un empleado");
             stmt.setString(1, a.getNombres());
             stmt.setString(2, a.getApellidos());
             stmt.setString(3, a.getCedula());
@@ -75,8 +74,7 @@ public class MySQLEmpleadoDAO extends MySQLconexion implements INTERFAZ.IEmplead
                 EmpleadoDTO c = new EmpleadoDTO();
                 c.setId(aux.getInt(1));
                 if (c.getId() == id) {
-                    stmt = super.getConn().prepareStatement("delete from asistente where id='" + id + "'");
-                    System.out.println("Se esta Eliminando un Asistente");
+                    stmt = super.getConn().prepareStatement("delete from empleado where id='" + id + "'");
                     stmt.executeUpdate();
 
                     exito = true;
@@ -90,7 +88,6 @@ public class MySQLEmpleadoDAO extends MySQLconexion implements INTERFAZ.IEmplead
                 if (super.getConn() != null) {
                     try {
                         super.getConn().close();
-                        System.out.println("se cerro la conexion elim ");
                     } catch (SQLException ex) {
                         Logger.getLogger(MySQLEmpleadoDAO.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -106,9 +103,8 @@ public class MySQLEmpleadoDAO extends MySQLconexion implements INTERFAZ.IEmplead
         boolean exito = false;
         PreparedStatement smtm = null;
         try {
-            smtm = super.getConn().prepareStatement("update asistente set nombres=?,apellidos=?,"
+            smtm = super.getConn().prepareStatement("update empleado set nombres=?,apellidos=?,"
                     + "cedula=?,direccion=?,telefono=?,correo=?,fechaInicio=?,where id='" + id + "'");
-            System.out.println("Se encuentra actualizando el asistente con id = " + id);
 
             smtm.setString(1, nombres);
             smtm.setString(2, apellidos);
@@ -155,6 +151,40 @@ public class MySQLEmpleadoDAO extends MySQLconexion implements INTERFAZ.IEmplead
             e.printStackTrace();
         }
         return aux;
+    }
+    
+        @Override
+    public ArrayList<EmpleadoDTO> listarEmpleadoDTO() {
+
+        ArrayList<EmpleadoDTO> a = null;
+        PreparedStatement stmt = null;
+        PreparedStatement auxi = null;
+
+        try {
+            a = new ArrayList<EmpleadoDTO>();
+            stmt = super.getConn().prepareStatement("select * from empleado");
+
+            ResultSet aux = stmt.executeQuery();
+            while (aux.next()) {
+                EmpleadoDTO vis = new EmpleadoDTO();
+                vis.setId(aux.getInt(1));
+                vis.setNombres(aux.getString(2));
+                vis.setApellidos(aux.getString(3));
+                vis.setCedula(aux.getString(4));
+                vis.setDireccion(aux.getString(5));
+                vis.setTelefono(aux.getString(6));
+                vis.setCorreo(aux.getString(7));
+                vis.setFechaIngreso(aux.getString(8));
+                
+                a.add(vis);
+            }
+            aux.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return a;
+
     }
     
     

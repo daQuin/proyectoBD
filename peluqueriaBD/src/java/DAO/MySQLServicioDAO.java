@@ -114,7 +114,7 @@ public class MySQLServicioDAO  extends MySQLconexion implements INTERFAZ.IServic
         ServicioDTO aux = null;
         PreparedStatement stmt = null;
         try {
-            stmt = super.getConn().prepareStatement("select * from cservicio where  "
+            stmt = super.getConn().prepareStatement("select * from servicio where  "
                     + "id='" + cod + "'");
             ResultSet a = stmt.executeQuery();
             while (a.next()) {

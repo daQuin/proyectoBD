@@ -6,6 +6,7 @@
 package INTERFAZ;
 
 import DTO.EmpleadoDTO;
+import java.util.ArrayList;
 
 /**
  *
@@ -16,6 +17,7 @@ public interface IEmpleadoDTO {
   public boolean eliminarEmpleado(int id);
   public boolean actualizarEmpleado(int id, String nombres,String apellidos,String cedula,String direccion, String telefono,String correo,String fechaIngreso);
   public EmpleadoDTO consultarEmpleado(int id);
+  public ArrayList<EmpleadoDTO> listarEmpleadoDTO();
 
     
 }

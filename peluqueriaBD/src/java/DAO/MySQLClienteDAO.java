@@ -68,8 +68,8 @@ public class MySQLClienteDAO extends MySQLconexion implements INTERFAZ.IClienteD
                 ClienteDTO c = new ClienteDTO();
                 c.setId(aux.getInt(1));
                 if (c.getId() == id) {
-                    stmt = super.getConn().prepareStatement("delete from asistente where id='" + id + "'");
-                    System.out.println("Se esta Eliminando un Asistente");
+                    stmt = super.getConn().prepareStatement("delete from cliente where id='" + id + "'");
+                    System.out.println("Se esta Eliminando un Cliente");
                     stmt.executeUpdate();
 
                     exito = true;
@@ -101,7 +101,7 @@ public class MySQLClienteDAO extends MySQLconexion implements INTERFAZ.IClienteD
         try {
             smtm = super.getConn().prepareStatement("update cliente set nombres=?,apellidos=?,"
                     + "direccion=?,telefono=?,correo=? where id='" + id + "'");
-            System.out.println("Se encuentra actualizando el asistente con id = " + id);
+            System.out.println("Se encuentra actualizando el cliente con id = " + id);
 
             smtm.setString(1, nombres);
             smtm.setString(2, apellidos);
