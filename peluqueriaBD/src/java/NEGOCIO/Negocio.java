@@ -90,12 +90,12 @@ public class Negocio implements INegocioDTO {
     public boolean registrarProducto(String nombre, String descripcion, int cantidad, int valor) {
 
           try {
-            boolean rta = admin.registrarCliente(nombre, descripcion, descripcion, nombre, nombre);
+            boolean rta = admin.registrarProducto(nombre, descripcion, cantidad, valor);
             if (rta) {
-                System.out.println("Cliente Registrado");
+                System.out.println("producto Registrado");
                 return rta;
             } else {
-                System.out.println("Cliente no Registrado");
+                System.out.println("producto no Registrado");
             }
 
         } catch (Exception e) {

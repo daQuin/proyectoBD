@@ -38,10 +38,12 @@ public class productoServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
 
+            
             String nombre = request.getParameter("nombre");
             String descripcion = request.getParameter("descripcion");
             int cantidad = Integer.parseInt(request.getParameter("cantidad"));
             int valor = Integer.parseInt(request.getParameter("valor"));
+            System.out.println("entramooooosss "+ nombre + descripcion + cantidad + valor);
             INegocioDTO n = new Negocio();
 
             if (n.registrarProducto(nombre, descripcion, cantidad, valor)) {

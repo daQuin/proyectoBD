@@ -21,6 +21,7 @@ public class Pruebas {
         System.out.println("ejecutando prueba de actualizacion");
         System.out.println("elcaido nuevamentdeeffrfre");
         System.out.println("pruebaaa daQuinnbnb");
+        a.registrarProducto("cera ", "cera para cabello rizo", 0, 0);
     }
     
 }

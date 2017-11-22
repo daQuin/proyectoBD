@@ -31,7 +31,7 @@ public class MySQLProductoDAO extends MySQLconexion implements IProductoDTO {
             PreparedStatement stmt = null;
             stmt = super.getConn().prepareStatement("insert into producto (id,nombre,descripcion,cantidad,"
                     + "valor"
-                    + ") values (0,?,?,0,0)");
+                    + ") values (0,?,?,?,?)");
             stmt.setString(1, a.getNombre());
             stmt.setString(2, a.getDescripcion());
             stmt.setInt(3, a.getCantidad());
