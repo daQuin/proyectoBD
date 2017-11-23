@@ -27,10 +27,11 @@ public class MySQLServicioDAO  extends MySQLconexion implements INTERFAZ.IServic
         boolean exito = false;
         try {
             PreparedStatement stmt = null;
-            stmt = super.getConn().prepareStatement("insert into servicio (id,nombre,valor)"
-                    + " values (0,?,0)");
+            stmt = super.getConn().prepareStatement("insert into servicio (id,nombre,valor,descripcion)"
+                    + " values (0,?,?,?)");
             stmt.setString(1, a.getNombre());
             stmt.setDouble(2, a.getValor());
+            stmt.setString(3, a.getDescripcion());
 
             int aux = stmt.executeUpdate();
             if (aux > 0) {
@@ -89,15 +90,16 @@ public class MySQLServicioDAO  extends MySQLconexion implements INTERFAZ.IServic
     }
 
     @Override
-    public boolean actualizarServicio(int id,String nombre, double valor) {
+    public boolean actualizarServicio(int id,String nombre, double valor,String descripcion) {
         boolean exito = false;
         PreparedStatement smtm = null;
         try {
-            smtm = super.getConn().prepareStatement("update servicio set nombre=?,valor=?"
+            smtm = super.getConn().prepareStatement("update servicio set nombre=?,valor=?,descripcion=?"
                     + " where id='" + id + "'");
 
             smtm.setString(1, nombre);
             smtm.setDouble(2, valor);
+            smtm.setString(3, descripcion);
 
             int total = smtm.executeUpdate();
             if (total > 0) {
@@ -122,6 +124,7 @@ public class MySQLServicioDAO  extends MySQLconexion implements INTERFAZ.IServic
 
                 aux.setNombre(a.getString(1));
                 aux.setValor(a.getDouble(2));
+                aux.setDescripcion(a.getString(3));
             }
 
             a.close();

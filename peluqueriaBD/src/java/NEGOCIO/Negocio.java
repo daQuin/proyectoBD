@@ -185,10 +185,10 @@ public class Negocio implements INegocioDTO {
     //---------------Metodos del servicio------------------------------------------
 
     @Override
-    public boolean registrarServicio(String nombre, double valor) {
+    public boolean registrarServicio(String nombre, double valor,String descripcion) {
 
         try {
-            boolean rta = admin.registrarServicio(nombre, valor);
+            boolean rta = admin.registrarServicio(nombre, valor,descripcion);
             if (rta) {
                 System.out.println("Servicio Registrado");
                 return rta;
@@ -203,9 +203,9 @@ public class Negocio implements INegocioDTO {
     }
 
     @Override
-    public boolean actualizarServicio(int id, String nombre, double valor) {
+    public boolean actualizarServicio(int id, String nombre, double valor,String descripcion) {
         try {
-            boolean rta = admin.actualizarServicio(id, nombre, valor);
+            boolean rta = admin.actualizarServicio(id, nombre, valor,descripcion);
             if (rta) {
                 System.out.println("producto Registrado");
                 return rta;

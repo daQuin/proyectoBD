@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public interface IServicioDTO {
   public boolean registrarServicio(ServicioDTO a);
   public boolean eliminarServicio(int id);
-  public boolean actualizarServicio(int id, String nombre,double valor);
+  public boolean actualizarServicio(int id, String nombre,double valor,String descripcion);
   public ServicioDTO consultarServicio(int id);
   public ArrayList<ServicioDTO> listarServicioDTO();
 

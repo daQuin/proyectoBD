@@ -130,15 +130,15 @@ public class AdministradorDTO {
     }
 
     //---------------------SERVICIO----------------------------------------------------------
-    public boolean registrarServicio(String nombre, double valor) {
+    public boolean registrarServicio(String nombre, double valor,String descripcion) {
         IServicioDTO a = factor.obtenerConexionServicio(false);
-        ServicioDTO p = new ServicioDTO(nombre, valor);
+        ServicioDTO p = new ServicioDTO(nombre, valor,descripcion);
         return a.registrarServicio(p);
     }
 
-    public boolean actualizarServicio(int id, String nombre, double valor) {
+    public boolean actualizarServicio(int id, String nombre, double valor,String descripcion) {
         IServicioDTO a = factor.obtenerConexionServicio(false);
-        return a.actualizarServicio(id, nombre, valor);
+        return a.actualizarServicio(id, nombre, valor,descripcion);
     }
 
     public ArrayList<ServicioDTO> listarServicios() {

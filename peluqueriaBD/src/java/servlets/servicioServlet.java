@@ -43,10 +43,11 @@ public class servicioServlet extends HttpServlet {
 
             String nombre = request.getParameter("nombre");
             double valor = Double.parseDouble(request.getParameter("valor"));
+            String descripcion=request.getParameter("descripcion");
             System.out.println("entramooooosss " + nombre + valor);
             INegocioDTO n = new Negocio();
 
-            if (n.registrarServicio(nombre, valor)) {
+            if (n.registrarServicio(nombre, valor,descripcion)) {
                 //el servlet responde con este mensaje al ajax exito y fallo
                 response.getWriter().print("exito");
             } else {

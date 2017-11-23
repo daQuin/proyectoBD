@@ -22,7 +22,11 @@ public class Pruebas {
 //        a.registrarProducto("cera2 ", "cera para cabello rizo", 5, 500);
 //        a.registrarEmpleado("Gilibert", "no se ", "12345", "su casa", "3210987",  "gilibert@gmail.com", "01/05/2011");
 //        a.eliminarProducto(4);
-          a.actualizarEmpleado(4,"Gilibert", "Moreno ", "12345", "su casa",  "123456", "gilibert@gmail.com","1/1/1");
+//          a.actualizarEmpleado(4,"Gilibert", "Moreno ", "12345", "su casa",  "123456", "gilibert@gmail.com","1/1/1");
+        //  a.actualizarProducto(6,"tinte ", "siluet azul", 9, 5000);
+         // a.registrarServicio("Corte de cabello hombre", 10000,"corte de todo tipo para caballeros");
+        // a.registrarServicio("Tinturado", 30000, "Tinturado dama y caballero");
+        a.actualizarServicio(2,"Tinturado", 30000, "Tinturado damas caballeros y niños");
     }
     
 }
