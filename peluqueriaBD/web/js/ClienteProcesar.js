@@ -1,35 +1,30 @@
-
-function registrarCliente() {
-    fechainicio = $("#fechainicio").val();
-    fechafin = $("#fechafin").val();
-    tipo = $("#tipo").val();
-    fechainiciovisita = $("#fechainiciovisita").val();
-    fechafinvisita = $("#fechafinvisita").val();
-    cupos = $("#cupos").val();
-    invercionestudiante = $("#inversionestudiante").val();
-    nombreempresa = $("#nombreempresa").val();
-    ciudad = $("#ciudad").val();
-    direccion = $("#direccion").val();
-    pais = $("#pais").val();
+function inscribirce() {
+    nombre = $("#nombrecliente").val();
+    apellido = $("#apellidocliente").val();
+    tel = $("#telefono").val();
+    correo = $("#correo").val();
+    direccion = $("#direccioncliente").val();
+   
 
     $.ajax({
         url: 'clienteServlet',
         type: 'POST',
-        data: {crearConv: "true", fechainicio: fechainicio, fechafin: fechafin, tipo: tipo, fechainiciovisita: fechainiciovisita,
-            fechafinvisita: fechafinvisita, cupos: cupos, invercionestudiante: invercionestudiante, nombreempresa: nombreempresa, pais: pais, ciudad: ciudad, direccion: direccion}
+        data: {inscribirce: "true", nombre: nombre, apellido: apellido, tel: tel, correo: correo, direccion: direccion}
     }).done(function (sub) {
 
         if ((sub.indexOf('exito') >= 0)) {
-            $("#msj").html("<br> Registro Exitoso");
-            $("#msj").slideDown("slow").delay(1000).slideUp("fast");
-
+            $("#msj2").html("<br> Registro Exitoso");
+            $("#msj2").slideDown("slow").delay(1000).slideUp("fast");
+            $("#cerrar").click();
         } else {
-            $("#msj").html("<br> Error de registro");
+            $("#msj").html("<br> Registro Erroneo  " + idcon+".");
             $("#msj").slideDown("slow").delay(1000).slideUp("fast");
         }
-        vaciar();
+       
 
     });
+    vaciar();
+    
 }
 
 
@@ -74,16 +69,11 @@ function consultarCliente() {
 }
 
 function vaciar() {
-    $("#fechainicio").val("");
-    $("#fechafin").val("");
-    $("#tipo").val("");
-    $("#fechainiciovisita").val("");
-    $("#fechafinvisita").val("");
-    $("#cupos").val("");
-    $("#inversionestudiante").val("");
-    $("#nombreEmpresa").val("");
-    $("#ciudad").val("");
-    $("#direccion").val("");
+    $("#nombrecliente").val("");
+    $("#apellidocliente").val("");
+    $("#telefono").val("");
+    $("#correo").val("");
+    $("#direccioncliente").val("");
 
 }
 

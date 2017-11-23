@@ -86,7 +86,7 @@ and open the template in the editor.
         <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
         <script src="js/main.js"></script>
         <script src="js/Iniciosesion.js"></script>
-        <script src="js/AsistentesProcesar.js"></script>
+        <script src="js/ClienteProcesar.js"></script>
 
     </body>
 </html>
