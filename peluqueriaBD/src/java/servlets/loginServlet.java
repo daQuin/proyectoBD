@@ -1,28 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package servlets;
 
 import INTERFAZ.INegocioDTO;
 import NEGOCIO.Negocio;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author nelsoncamilo
+ * @author Daniel Quintero
  */
-@WebServlet(name = "empleadoServlet", urlPatterns = {"/empleadoServlet"})
-public class empleadoServlet extends HttpServlet {
+@WebServlet(name = "loginServlet", urlPatterns = {"/loginServlet"})
+public class loginServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,30 +28,46 @@ public class empleadoServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void registrarEmpleado(HttpServletRequest request, HttpServletResponse response)
+    protected void iniciar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-
-            String nombre = request.getParameter("nombre");
-            String apellido = request.getParameter("apellido");
-            int cedula = Integer.parseInt("cedula");
-            String direccion = request.getParameter("direccion");
-            int telefono = Integer.parseInt(request.getParameter("cantidad"));
-            String fecha = request.getParameter("fecha");
-            System.out.println("entramooooosss " + nombre + apellido + cedula+ direccion + telefono + fecha);
+            //llamamos con los nombres que pusimos en el ajax
+            String nom = request.getParameter("usuario");
+            String pas = request.getParameter("pass");
             INegocioDTO n = new Negocio();
-
-            if (n.registrarEmpleado(nombre, apellido, cedula, direccion, telefono, fecha)) {
+            
+            System.out.println("INICIOO SESIOM");
+            System.out.println(nom+"-"+pas);
+            if (n.iniciarSesion(nom, pas)) {
+                HttpSession session = request.getSession();
+                session.setAttribute("sesion", "creada");
+                session.setAttribute("negocio", n);
+                
                 //el servlet responde con este mensaje al ajax exito y fallo
                 response.getWriter().print("exito");
             } else {
                 response.getWriter().print("fallo");
             }
-        } catch (Exception ex) {
-            Logger.getLogger(clienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+
         }
     }
+    
+     protected void cerrarSesion(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+
+            INegocioDTO neg = (INegocioDTO) request.getSession().getAttribute("negocio");
+            
+            
+            neg.cerrarSesion();
+            request.getSession().invalidate();
+            System.out.println("CERROOOOOO SESIONNN");
+            response.sendRedirect("index.jsp");
+        }
+    }
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -70,7 +81,10 @@ public class empleadoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        registrarEmpleado(request, response);
+       
+        if (request.getParameter("cerrarSesion") != null) {
+            cerrarSesion(request, response);
+        }
     }
 
     /**
@@ -84,7 +98,9 @@ public class empleadoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        registrarEmpleado(request, response);
+        if (request.getParameter("iniSesion") != null) {
+            iniciar(request, response);
+        }
     }
 
     /**

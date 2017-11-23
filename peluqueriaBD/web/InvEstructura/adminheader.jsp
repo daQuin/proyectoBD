@@ -41,14 +41,14 @@
                 <div class="ufps-navbar-right">
                     <div class="ufps-navbar-corporate">
                         <!--  <img src="img/logo_ingsistemas_vertical_invertido.png" alt="Logo ingeniería de sistemas">-->
-                       <a href="index.jsp"  onclick="menuSesion()" class="">
+                       <a href="loginServlet?cerrarSesion=true" class="">
                         <img src="img/salir.png" alt="Logo UFPS">
                        </a>
                     </div>
                 </div>
                 <div class="ufps-navbar-right">
 
-                    <a href="index.jsp"  onclick="menuSesion()" class="ufps-navbar-btn"> Salir </a>
+                    <a href="loginServlet?cerrarSesion=true"  class="ufps-navbar-btn"> Salir </a>
                 </div>
 
             </div>

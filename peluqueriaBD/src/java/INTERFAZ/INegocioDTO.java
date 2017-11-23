@@ -37,4 +37,9 @@ public interface INegocioDTO {
     public ServicioDTO consultarServicio(int id);
     public ArrayList<ServicioDTO> listarServicio();
 
+    public boolean registrarEmpleado(String nombre, String apellido, int cedula, String direccion, int telefono, String fecha);
+
+     public boolean iniciarSesion(String nom,  String pas);
+     
+    public void cerrarSesion();
 }

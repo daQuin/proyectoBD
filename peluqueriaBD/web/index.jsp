@@ -27,9 +27,9 @@
                 <!--Barra de Registro y Ingreso -->
                 <ul class="nav navbar-nav navbar-right">
                     <!--Boton Registro -->
-                    <li><a href="registro.html"><span class="glyphicon glyphicon-user"></span> Registrate</a></li>
+                    <li><a href="registro.jsp"><span class="glyphicon glyphicon-user"></span> Registrate</a></li>
                     <!--Boton Ingreso -->
-                    <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Ingresate</a></li>
+                    <li><a href="Ingresar.jsp"><span class="glyphicon glyphicon-log-in"></span> Ingresate</a></li>
                 </ul>
             </div>
         </nav>

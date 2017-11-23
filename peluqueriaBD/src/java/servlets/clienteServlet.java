@@ -40,16 +40,16 @@ public class clienteServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
 
-            int idCon = Integer.parseInt(request.getParameter("idcon"));
+       
             String nombre = request.getParameter("nombre");
             String apellido = request.getParameter("apellido");
-            int cod = Integer.parseInt(request.getParameter("cod"));
-            String semestre = request.getParameter("semestre");
+            String tel = request.getParameter("tel");
             String correo = request.getParameter("correo");
-            System.out.println(nombre + apellido + cod + correo);
+            String direccion = request.getParameter("direccion");
+            System.out.println(nombre + apellido + tel + correo);
             INegocioDTO n = new Negocio();
 
-            if (n.registrarCliente(nombre, apellido, correo, semestre, correo)) {
+            if (n.registrarCliente(nombre, apellido, direccion, tel, correo)) {
                 //el servlet responde con este mensaje al ajax exito y fallo
                 response.getWriter().print("exito");
             } else {
@@ -166,7 +166,7 @@ public class clienteServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if (request.getParameter("registrarCliente") != null) {
+        if (request.getParameter("inscribirce") != null) {
             registrarCliente(request, response);
         }
     }

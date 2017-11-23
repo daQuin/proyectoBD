@@ -1,16 +1,16 @@
 
-function inscribirce(idcon) {
-    nombre = $("#nombre").val();
-    apellido = $("#apellido").val();
-    cod = $("#cod").val();
-    semestre = $("#semestre").val();
+function inscribirce() {
+    nombre = $("#nombrecliente").val();
+    apellido = $("#apellidocliente").val();
+    tel = $("#telefono").val();
     correo = $("#correo").val();
+    direccion = $("#direccioncliente").val();
    
 
     $.ajax({
-        url: 'AsistServlet',
+        url: 'clienteServlet',
         type: 'POST',
-        data: {inscribirce: "true", idcon: idcon, nombre: nombre, apellido: apellido, cod: cod, semestre: semestre, correo: correo}
+        data: {inscribirce: "true", nombre: nombre, apellido: apellido, tel: tel, correo: correo, direccion: direccion}
     }).done(function (sub) {
 
         if ((sub.indexOf('exito') >= 0)) {

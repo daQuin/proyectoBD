@@ -34,7 +34,7 @@ and open the template in the editor.
                 <!--Barra de Registro y Ingreso -->
                 <ul class="nav navbar-nav navbar-right">
                     <!--Boton Registro -->
-                    <li><a href="registro.html"><span class="glyphicon glyphicon-user"></span> Registrate</a></li>
+                    <li><a href="registro.jsp"><span class="glyphicon glyphicon-user"></span> Registrate</a></li>
                     <!--Boton Ingreso -->
                     <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Ingresate</a></li>
                 </ul>
@@ -53,26 +53,14 @@ and open the template in the editor.
                     </div>
                     <div class="wrap">
                         <p class="form-title">
-                            Inicia Sesión</p>
-                        <form class="login">
-                            <input type="text" placeholder="Correo" />
-                            <input type="password" placeholder="Contraseña" />
-                            <input type="submit" value="Ingresar" class="btn btn-success btn-sm" />
-                            <div class="remember-forgot">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" />
-                                                Recuerdame
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 forgot-pass-content">
-                                        <a href="javascript:void(0)" class="forgot-pass">¿Has olvidado tu contraseña?</a>
-                                    </div>
-                                </div>
-                            </div>
+                            Inicia Sesi�n</p>
+                          <form method="post" onsubmit="iniciarSesion();
+                                return false"  >
+                         <div style="display: none; color: red;" class="text-center" id="msjInicio"></div>
+                            <input type="text" placeholder="User" id="usu" name="usu" required autofocus>
+                            <input type="password" placeholder="Pass" id="pass" name="pass" required autofocus>
+
+                            <input type="submit" value="Aceptare" id="boton" >
                         </form>
                     </div>
                 </div>
@@ -84,9 +72,21 @@ and open the template in the editor.
             <div class="container">
                 <div class="navbar-text pull-left">
                     <!--Texto del fondo -->
-                    <p> © PelosNecios SA 2016.</p>
+                    <p> � PelosNecios SA 2016.</p>
                 </div>
             </div>
         </div>
+        
+          <!-- Scripts -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/Jscript.js"></script>
+        <script src="lib/js/bootstrap.min.js"></script>
+
+        <script src="js/skel.min.js"></script>
+        <script src="js/util.js"></script>
+        <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+        <script src="js/main.js"></script>
+        <script src="js/procesarSesion.js"></script>
+        
     </body>
 </html>

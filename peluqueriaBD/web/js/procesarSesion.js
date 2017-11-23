@@ -95,7 +95,7 @@ function iniciarSesion() {
 
 
     $.ajax({
-        url: 'inisioSesion',
+        url: 'loginServlet',
         type: 'POST',
         data: {iniSesion: "true", usuario: usuario, pass: pass}
     }).done(function (sub) {

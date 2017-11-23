@@ -28,19 +28,23 @@ public class Negocio implements INegocioDTO {
 
     @Override
     public boolean registrarCliente(String nombres, String apellidos, String direccion, String telefono, String correo) {
+//
+//        try {
+//            boolean rta = admin.registrarCliente(nombres, apellidos, direccion, telefono, correo);
+//            if (rta) {
+//                System.out.println("Cliente Registrado");
+//                return rta;
+//            } else {
+//                System.out.println("Cliente no Registrado");
+//            }
+//
+//        } catch (Exception e) {
+//        }
+//        return false;
 
-        try {
-            boolean rta = admin.registrarCliente(nombres, apellidos, direccion, telefono, correo);
-            if (rta) {
-                System.out.println("Cliente Registrado");
-                return rta;
-            } else {
-                System.out.println("Cliente no Registrado");
-            }
+        System.out.println("LLEGOO A NEGOCIO "+ nombres );
 
-        } catch (Exception e) {
-        }
-        return false;
+return true;
     }
 
     @Override
@@ -251,4 +255,30 @@ public class Negocio implements INegocioDTO {
 
     }
 
+    @Override
+    public boolean registrarEmpleado(String nombre, String apellido, int cedula, String direccion, int telefono, String fecha) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean iniciarSesion(String nom, String pas) {
+    
+        if(nom.equalsIgnoreCase("daniel") && pas.equalsIgnoreCase("pass")){
+            return true;
+        }
+        
+        return false;
+    }
+
+    @Override
+    public void cerrarSesion() {
+
+        
+        
+    }
+
+    
+    
+    
+    
 }
