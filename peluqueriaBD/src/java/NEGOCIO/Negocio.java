@@ -65,7 +65,19 @@ public class Negocio implements INegocioDTO {
 
     @Override
     public boolean actualizarCliente(int id, String nombres, String apellidos, String direccion, String telefono, String correo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            try {
+            boolean rta = admin.actualizarCliente(id, nombres, apellidos, direccion, telefono, correo);
+            if (rta) {
+                System.out.println("Empleado Registrado");
+                return rta;
+            } else {
+                System.out.println("Empleado no Registrado");
+            }
+
+        } catch (Exception e) {
+        }
+        return false;
+        
     }
 
     @Override

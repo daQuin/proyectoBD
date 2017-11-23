@@ -22,7 +22,7 @@ public class Pruebas {
 //        a.registrarProducto("cera2 ", "cera para cabello rizo", 5, 500);
 //        a.registrarEmpleado("Gilibert", "no se ", "12345", "su casa", "3210987",  "gilibert@gmail.com", "01/05/2011");
 //        a.eliminarProducto(4);
-        a.actualizarEmpleado(4,"Gilibert", "Moreno ", "12345", "su casa",  "123456", "gilibert@gmail.com","1/1/1");
+          a.actualizarEmpleado(4,"Gilibert", "Moreno ", "12345", "su casa",  "123456", "gilibert@gmail.com","1/1/1");
     }
     
 }
