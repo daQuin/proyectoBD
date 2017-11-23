@@ -127,10 +127,10 @@ public class MySQLProductoDAO extends MySQLconexion implements IProductoDTO {
             while (a.next()) {
                 aux = new ProductoDTO();
 
-                aux.setNombre(a.getString(1));
-                aux.setDescripcion(a.getString(2));
-                aux.setCantidad(a.getInt(3));
-                aux.setValor(a.getDouble(4));
+                aux.setNombre(a.getString(2));
+                aux.setDescripcion(a.getString(3));
+                aux.setCantidad(a.getInt(4));
+                aux.setValor(a.getDouble(5));
             }
 
             a.close();

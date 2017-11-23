@@ -136,13 +136,13 @@ public class MySQLEmpleadoDAO extends MySQLconexion implements INTERFAZ.IEmplead
             while (a.next()) {
                 aux = new EmpleadoDTO();
 
-                aux.setNombres(a.getString(1));
-                aux.setApellidos(a.getString(2));
-                aux.setCedula(a.getString(3));
-                aux.setDireccion(a.getString(4));
-                aux.setTelefono(a.getString(5));
-                aux.setCorreo(a.getString(6));
-                aux.setFechaIngreso(a.getString(7));
+                aux.setNombres(a.getString(2));
+                aux.setApellidos(a.getString(3));
+                aux.setCedula(a.getString(4));
+                aux.setDireccion(a.getString(5));
+                aux.setTelefono(a.getString(6));
+                aux.setCorreo(a.getString(7));
+                aux.setFechaIngreso(a.getString(8));
              }
 
             a.close();

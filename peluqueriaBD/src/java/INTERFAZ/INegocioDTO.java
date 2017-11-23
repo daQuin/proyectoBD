@@ -5,6 +5,7 @@
  */
 package INTERFAZ;
 
+import DTO.CitaDTO;
 import DTO.ClienteDTO;
 import DTO.EmpleadoDTO;
 import DTO.ProductoDTO;
@@ -51,6 +52,12 @@ public interface INegocioDTO {
     public boolean actualizarPromocion(int id,String nombre, String FechaInicio, String FechaFin);
     public PromocionDTO consultarPromocion(int id);
     //public ArrayList<PromocionDTO> listarPromocion();
+    
+    public boolean registrarCita(String fecha,String fechaCreacion, int idCliente,int idPromocion);
+    public boolean EliminarCita(int id);
+    public boolean actualizarCita(int id, String fecha,String fechaCreacion, int idCliente,int idPromocion);
+    public CitaDTO consultarCita(int id);
+    public ArrayList<CitaDTO> listarCita();
     
      public boolean iniciarSesion(String nom,  String pas);
      

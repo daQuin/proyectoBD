@@ -6,6 +6,7 @@
 package NEGOCIO;
 
 import DTO.AdministradorDTO;
+import DTO.CitaDTO;
 import DTO.ClienteDTO;
 import DTO.EmpleadoDTO;
 import DTO.ProductoDTO;
@@ -413,6 +414,82 @@ public class Negocio implements INegocioDTO {
 
         return false;
 
+    }
+    
+    //-------------Metodos de citas------------------------------------------------
+        @Override
+    public boolean registrarCita(String fecha,String fechaCreacion, int idCliente,int idPromocion) {
+
+        try {
+            boolean rta = admin.registrarCita(fecha, fechaCreacion, idCliente, idPromocion);
+            if (rta) {
+                return rta;
+            } else {
+            }
+
+        } catch (Exception e) {
+        }
+        return false;
+
+    }
+
+    @Override
+    public boolean actualizarCita(int id, String fecha,String fechaCreacion, int idCliente,int idPromocion) {
+        try {
+            boolean rta = admin.actualizarCita(id, fecha, fechaCreacion, idCliente, idPromocion);
+            if (rta) {
+                return rta;
+            } else {
+            }
+
+        } catch (Exception e) {
+        }
+        return false;
+    }
+
+    @Override
+    public CitaDTO consultarCita(int id) {
+
+        try {
+            CitaDTO rta = admin.consultarCita(id);
+            return rta;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+ 
+
+    @Override
+    public boolean EliminarCita(int id) {
+
+        try {
+            boolean rta = admin.eliminarCita(id);
+            if (rta == true) {
+
+                return rta;
+            } else {
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return false;
+
+    }
+    
+        @Override
+    public ArrayList<CitaDTO> listarCita() {
+        ArrayList<CitaDTO> a = null;
+        try {
+            a = admin.listarCita();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return a;
     }
 
    

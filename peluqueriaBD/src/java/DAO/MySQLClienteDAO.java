@@ -130,11 +130,11 @@ public class MySQLClienteDAO extends MySQLconexion implements INTERFAZ.IClienteD
             while (a.next()) {
                 aux = new ClienteDTO();
 
-                aux.setNombres(a.getString(1));
-                aux.setApellidos(a.getString(2));
-                aux.setDireccion(a.getString(3));
-                aux.setTelefono(a.getString(4));
-                aux.setCorreo(a.getString(5));
+                aux.setNombres(a.getString(2));
+                aux.setApellidos(a.getString(3));
+                aux.setDireccion(a.getString(4));
+                aux.setTelefono(a.getString(5));
+                aux.setCorreo(a.getString(6));
             }
 
             a.close();

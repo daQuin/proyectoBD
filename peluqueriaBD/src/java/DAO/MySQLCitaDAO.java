@@ -126,9 +126,9 @@ public class MySQLCitaDAO extends MySQLconexion  implements INTERFAZ.ICitaDTO{
                 aux = new CitaDTO();
                 MySQLClienteDAO c = new MySQLClienteDAO(false);
                 MySQLPromocionDAO  p= new MySQLPromocionDAO(false);
-                aux.setFecha(a.getString(1));
-                aux.setIdCliente(c.consultarCliente(a.getInt(2)));
-                aux.setIdPromocion(p.consultarPromocion(a.getInt(3)));
+                aux.setFecha(a.getString(2));
+                aux.setIdCliente(c.consultarCliente(a.getInt(3)));
+                aux.setIdPromocion(p.consultarPromocion(a.getInt(4)));
              }
 
             a.close();

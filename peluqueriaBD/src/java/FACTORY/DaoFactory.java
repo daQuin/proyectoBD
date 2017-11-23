@@ -6,6 +6,7 @@
 package FACTORY;
 
 import DAO.MySQLAdministradorDAO;
+import DAO.MySQLCitaDAO;
 import DAO.MySQLClienteDAO;
 import DAO.MySQLEmpleadoDAO;
 import DAO.MySQLProductoDAO;
@@ -13,6 +14,7 @@ import DAO.MySQLPromocionDAO;
 import DAO.MySQLServicioDAO;
 
 import INTERFAZ.IAdministradorDTO;
+import INTERFAZ.ICitaDTO;
 import INTERFAZ.IClienteDTO;
 import INTERFAZ.IEmpleadoDTO;
 import INTERFAZ.IProductoDTO;
@@ -43,6 +45,9 @@ public class DaoFactory {
     }
   public IServicioDTO obtenerConexionServicio(boolean keepConnection) {
         return new MySQLServicioDAO(keepConnection);
+    }
+    public ICitaDTO obtenerConexionCita(boolean keepConnection) {
+        return new MySQLCitaDAO(keepConnection);
     }
  
 }

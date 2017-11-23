@@ -7,6 +7,7 @@ package DTO;
 
 import FACTORY.DaoFactory;
 import INTERFAZ.IAdministradorDTO;
+import INTERFAZ.ICitaDTO;
 import java.util.ArrayList;
 import INTERFAZ.IClienteDTO;
 import INTERFAZ.IEmpleadoDTO;
@@ -207,5 +208,31 @@ public class AdministradorDTO {
     public boolean eliminarPromocion(int id) {
         IPromocionDTO a = factor.obtenerConexionPromocion(false);
         return a.eliminarPromocion(id);
+    }
+     //---------------------CITA--------------------------------------------------------
+     public boolean registrarCita(String fecha,String fechaCreacion, int idCliente,int idPromocion) {
+        ICitaDTO a = factor.obtenerConexionCita(false);
+        
+        CitaDTO p = new CitaDTO(fecha, fechaCreacion, consultarCliente(idCliente), consultarPromocion(idPromocion));
+        return a.registrarCita(p);
+    }
+
+    public boolean actualizarCita(int id, String fecha,String fechaCreacion, int idCliente,int idPromocion) {
+        ICitaDTO a = factor.obtenerConexionCita(false);
+        return a.actualizarCita(id, fecha, fechaCreacion, idCliente, idPromocion);
+    }
+
+    public ArrayList<CitaDTO> listarCita() {
+        ICitaDTO a = factor.obtenerConexionCita(false);
+        return a.listarCitaDTO();
+    }
+    public CitaDTO consultarCita(int id) {
+        ICitaDTO a = factor.obtenerConexionCita(false);
+        return a.consultarCita(id);
+    }
+
+    public boolean eliminarCita(int id) {
+        ICitaDTO a = factor.obtenerConexionCita(false);
+        return a.eliminarCita(id);
     }
 }

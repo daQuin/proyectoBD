@@ -125,9 +125,9 @@ public class MySQLPromocionDAO extends MySQLconexion implements INTERFAZ.IPromoc
             while (a.next()) {
                 aux = new PromocionDTO();
 
-                aux.setNombre(a.getString(1));
-                aux.setFechaInicio(a.getString(2));
-                aux.setFechaFin(a.getString(3));
+                aux.setNombre(a.getString(2));
+                aux.setFechaInicio(a.getString(3));
+                aux.setFechaFin(a.getString(4));
              }
 
             a.close();
