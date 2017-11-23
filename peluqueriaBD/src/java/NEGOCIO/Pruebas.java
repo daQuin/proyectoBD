@@ -29,6 +29,7 @@ public class Pruebas {
        // a.actualizarServicio(2,"Tinturado", 30000, "Tinturado damas caballeros y niños");
        
         System.out.println(a.consultarCliente(1));
+        System.out.println("cualquier cosa");
     }
     
 }
