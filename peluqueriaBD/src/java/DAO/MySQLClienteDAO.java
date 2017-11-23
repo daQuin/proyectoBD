@@ -25,7 +25,7 @@ public class MySQLClienteDAO extends MySQLconexion implements INTERFAZ.IClienteD
         boolean exito = false;
         try {
             PreparedStatement stmt = null;
-            stmt = super.getConn().prepareStatement("insert into cliente (idCliente,nombre,apellido,direccion,"
+            stmt = super.getConn().prepareStatement("insert into cliente (id,nombre,apellido,direccion,"
                     + "telefono,correo"
                     + ") values (0,?,?,?,?,?)");
             System.out.println("Entramos a registrar una cliente");

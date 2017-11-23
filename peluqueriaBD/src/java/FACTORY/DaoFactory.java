@@ -10,12 +10,14 @@ import DAO.MySQLClienteDAO;
 import DAO.MySQLEmpleadoDAO;
 import DAO.MySQLProductoDAO;
 import DAO.MySQLPromocionDAO;
+import DAO.MySQLServicioDAO;
 
 import INTERFAZ.IAdministradorDTO;
 import INTERFAZ.IClienteDTO;
 import INTERFAZ.IEmpleadoDTO;
 import INTERFAZ.IProductoDTO;
 import INTERFAZ.IPromocionDTO;
+import INTERFAZ.IServicioDTO;
 
 
 /**
@@ -36,8 +38,11 @@ public class DaoFactory {
  public IEmpleadoDTO obtenerConexionEmpleado(boolean keepConnection) {
         return new MySQLEmpleadoDAO(keepConnection);
     }
- public IPromocionDTO obtenerConexionPeomocion(boolean keepConnection) {
+ public IPromocionDTO obtenerConexionPromocion(boolean keepConnection) {
         return new MySQLPromocionDAO(keepConnection);
+    }
+  public IServicioDTO obtenerConexionServicio(boolean keepConnection) {
+        return new MySQLServicioDAO(keepConnection);
     }
  
 }

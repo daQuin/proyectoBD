@@ -18,7 +18,8 @@ public class Pruebas {
         AdministradorDTO a = new AdministradorDTO();
         
         a.registrarCliente("daniel", "Quintero", "Calle 2", "2313456", "daniel@gmail.com");
-        a.registrarProducto("cera ", "cera para cabello rizo", 0, 0);
+        a.registrarProducto("cera ", "cera para cabello rizo", 5, 500);
+        a.registrarProducto("cera2 ", "cera para cabello rizo", 5, 500);
     }
     
 }

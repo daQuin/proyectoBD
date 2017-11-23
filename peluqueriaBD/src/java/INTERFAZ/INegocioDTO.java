@@ -7,6 +7,7 @@ package INTERFAZ;
 
 import DTO.ClienteDTO;
 import DTO.ProductoDTO;
+import DTO.ServicioDTO;
 import java.util.ArrayList;
 
 /**
@@ -14,22 +15,26 @@ import java.util.ArrayList;
  * @author DELL
  */
 public interface INegocioDTO {
-      public boolean registrarCliente(String nombres, String apellidos, String direccion, String telefono,
+
+    public boolean registrarCliente(String nombres, String apellidos, String direccion, String telefono,
             String correo);
-      
-       public boolean EliminarCliente(int id);
-       
-       public boolean actualizarCliente(int id, String nombres, String apellidos, String direccion, String telefono,
+    public boolean EliminarCliente(int id);
+    public boolean actualizarCliente(int id, String nombres, String apellidos, String direccion, String telefono,
             String correo);
-       
-       public ClienteDTO consultarCliente(int id);
-       
-       public ArrayList<ClienteDTO> listarClienteDTO();
-       
-       
-       public boolean registrarProducto(String nombre, String descripcion, int cantidad, int valor);
-       
-        public ArrayList<ProductoDTO> listarProducto();
-        
-        public boolean EliminarProducto(int id);
+    public ClienteDTO consultarCliente(int id);
+    public ArrayList<ClienteDTO> listarClienteDTO();
+    
+
+    public boolean registrarProducto(String nombre, String descripcion, int cantidad, int valor);
+    public boolean EliminarProducto(int id);
+    public boolean actualizarProducto(int id,String nombre, String descripcion, int cantidad, int valor);
+    public ProductoDTO consultarProducto(int id);
+    public ArrayList<ProductoDTO> listarProducto();
+    
+    public boolean registrarServicio(String nombre,double valor);
+    public boolean EliminarServicio(int id);
+    public boolean actualizarServicio(int id, String nombre,double valor);
+    public ServicioDTO consultarServicio(int id);
+    public ArrayList<ServicioDTO> listarServicio();
+
 }
