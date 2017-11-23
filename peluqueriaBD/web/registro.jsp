@@ -38,15 +38,15 @@ and open the template in the editor.
                     <!--Boton Inicio -->
                     <li class="active"><a href="index.jsp">Inicio</a></li>
                     <!--Boton Productos -->
-                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="productos.jsp">Productos</a></li>
                     <!--Boton Servicios -->
-                    <li><a href="servicio.html">Servicios</a></li>
+                    <li><a href="servicios.jsp">Servicios</a></li>
                     <!--Boton Citas -->
                     <li><a href="cita.html">Citas</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <a class="navbar">Ya tienes una cuenta?</a>
-                    <li><a href="login.jsp"><span class="glyphicon glyphicon-log-in"></span> Ingresate</a></li>
+                    <li><a href="Ingresar.jsp"><span class="glyphicon glyphicon-log-in"></span> Ingresate</a></li>
                 </ul>
             </div>
         </nav>

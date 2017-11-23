@@ -20,20 +20,20 @@
                 </div>
                 <ul class="nav navbar-nav">
                     <!--Boton Inicio -->
-                    <li class="active"><a href="index3.html">Inicio</a></li>
+                    <li class="active"><a href="index.jsp">Inicio</a></li>
                     <!--Boton Productos -->
-                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="productos.jsp">Productos</a></li>
                     <!--Boton Servicios -->
-                    <li><a href="servicio.html">Servicios</a></li>
+                    <li><a href="servicios.jsp">Servicios</a></li>
                     <!--Boton Citas -->
                     <li><a href="cita.html">Citas</a></li>
                 </ul>
                 <!--Barra de Registro y Ingreso -->
                 <ul class="nav navbar-nav navbar-right">
                     <!--Boton Registro -->
-                    <li><a href="registro.html"><span class="glyphicon glyphicon-user"></span> Registrate</a></li>
+                    <li><a href="registro.jsp"><span class="glyphicon glyphicon-user"></span> Registrate</a></li>
                     <!--Boton Ingreso -->
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Ingresate</a></li>
+                    <li><a href="Ingresar.jsp"><span class="glyphicon glyphicon-log-in"></span> Ingresate</a></li>
                 </ul>
             </div>
         </nav>
