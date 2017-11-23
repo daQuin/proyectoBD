@@ -150,6 +150,7 @@ public class MySQLServicioDAO  extends MySQLconexion implements INTERFAZ.IServic
                 vis.setId(aux.getInt(1));
                 vis.setNombre(aux.getString(2));
                 vis.setValor(aux.getDouble(3));
+                vis.setDescripcion(aux.getString(4));
                 a.add(vis);
             }
             aux.close();

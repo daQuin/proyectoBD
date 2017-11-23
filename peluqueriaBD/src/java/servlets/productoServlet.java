@@ -66,8 +66,9 @@ public class productoServlet extends HttpServlet {
         }
         ArrayList<ProductoDTO> as = new ArrayList<>();
         as = n.listarProducto();
+        
         for (ProductoDTO a : as) {
-            System.out.println("producto: " + a.getNombre());
+            System.out.println("producto desde servlet: "+ a.getNombre());
         }
         return as;
     }

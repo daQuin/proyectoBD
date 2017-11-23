@@ -1,6 +1,6 @@
 
 function registrarProducto() {
-    nombre = $("#nombreservicio").val();
+    nombre = $("#nombreproducto").val();
     descripcion = $("#textArea").val();
     cantidad = $("#cantidadproducto").val();
     valor = $("#valorproducto").val();

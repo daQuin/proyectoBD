@@ -5,10 +5,13 @@
  */
 package servlets;
 
+import DTO.ProductoDTO;
+import DTO.ServicioDTO;
 import INTERFAZ.INegocioDTO;
 import NEGOCIO.Negocio;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -52,6 +55,18 @@ public class servicioServlet extends HttpServlet {
         } catch (Exception ex) {
             Logger.getLogger(clienteServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+     
+      public ArrayList listarServicios(HttpServletRequest request) throws Exception {
+
+        INegocioDTO n = (INegocioDTO) request.getSession().getAttribute("negocio");
+        if (n == null) {
+            n = new Negocio();
+        }
+        ArrayList<ServicioDTO> as = new ArrayList<>();
+        as = n.listarServicio();
+       
+        return as;
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
