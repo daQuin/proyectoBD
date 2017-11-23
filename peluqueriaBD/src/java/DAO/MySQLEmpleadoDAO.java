@@ -103,8 +103,9 @@ public class MySQLEmpleadoDAO extends MySQLconexion implements INTERFAZ.IEmplead
         boolean exito = false;
         PreparedStatement smtm = null;
         try {
-            smtm = super.getConn().prepareStatement("update empleado set nombres=?,apellidos=?,"
-                    + "cedula=?,direccion=?,telefono=?,correo=?,fechaInicio=?,where id='" + id + "'");
+             smtm = super.getConn().prepareStatement("update empleado set nombre=?,apellido=?,cedula=?"
+                    + "direccion=?,telefono=?,correo=?,fechaingreso=? where id='" + id + "'");
+            System.out.println("Se encuentra actualizando el empleado con id = " + id);
 
             smtm.setString(1, nombres);
             smtm.setString(2, apellidos);

@@ -8,6 +8,7 @@ package INTERFAZ;
 import DTO.ClienteDTO;
 import DTO.EmpleadoDTO;
 import DTO.ProductoDTO;
+import DTO.PromocionDTO;
 import DTO.ServicioDTO;
 import java.util.ArrayList;
 
@@ -44,6 +45,12 @@ public interface INegocioDTO {
             String telefono,String correo,String fechaIngreso);
     public EmpleadoDTO consultarEmpleado(int id);
     public ArrayList<EmpleadoDTO> listarEmpleadoDTO();
+    
+    public boolean registrarPromocion(String nombre, String FechaInicio, String FechaFin);
+    public boolean EliminarPromocion(int id);
+    public boolean actualizarPromocion(int id,String nombre, String FechaInicio, String FechaFin);
+    public PromocionDTO consultarPromocion(int id);
+    //public ArrayList<PromocionDTO> listarPromocion();
     
      public boolean iniciarSesion(String nom,  String pas);
      

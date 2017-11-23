@@ -9,6 +9,7 @@ import DTO.AdministradorDTO;
 import DTO.ClienteDTO;
 import DTO.EmpleadoDTO;
 import DTO.ProductoDTO;
+import DTO.PromocionDTO;
 import DTO.ServicioDTO;
 import INTERFAZ.INegocioDTO;
 import java.util.ArrayList;
@@ -331,7 +332,77 @@ public class Negocio implements INegocioDTO {
         return a;
     }
    
+    //-------------------metodos de promocion-----------------------------------------
    
+    
+    @Override
+    public boolean registrarPromocion(String nombre, String FechaInicio, String FechaFin) {
+
+        try {
+            boolean rta = admin.registrarPromocion(nombre, FechaInicio, FechaFin);
+            if (rta) {
+                System.out.println("Promocion Registrada");
+                return rta;
+            } else {
+                System.out.println("Promocion no Registrado");
+            }
+
+        } catch (Exception e) {
+        }
+        return false;
+
+    }
+
+    @Override
+    public boolean actualizarPromocion(int id,String nombre, String FechaInicio, String FechaFin) {
+        try {
+            boolean rta = admin.actualizarPromocion(id, nombre, FechaInicio, FechaFin);
+            if (rta) {
+                System.out.println("Promocion Registrado");
+                return rta;
+            } else {
+                System.out.println("Promocion no Registrado");
+            }
+
+        } catch (Exception e) {
+        }
+        return false;
+    }
+
+    @Override
+    public PromocionDTO consultarPromocion(int id) {
+
+        try {
+            PromocionDTO rta = admin.consultarPromocion(id);
+            return rta;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+ 
+
+    @Override
+    public boolean EliminarPromocion(int id) {
+
+        try {
+            boolean rta = admin.eliminarPromocion(id);
+            if (rta == true) {
+
+                return rta;
+            } else {
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return false;
+
+    }
+
    
 
     //------------------Metodos de inicio de sesion------------------------------------

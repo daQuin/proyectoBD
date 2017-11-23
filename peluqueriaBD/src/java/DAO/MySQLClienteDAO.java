@@ -99,7 +99,7 @@ public class MySQLClienteDAO extends MySQLconexion implements INTERFAZ.IClienteD
         boolean exito = false;
         PreparedStatement smtm = null;
         try {
-            smtm = super.getConn().prepareStatement("update cliente set nombres=?,apellidos=?,"
+            smtm = super.getConn().prepareStatement("update cliente set nombre=?,apellido=?,"
                     + "direccion=?,telefono=?,correo=? where id='" + id + "'");
             System.out.println("Se encuentra actualizando el cliente con id = " + id);
 

@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import INTERFAZ.IClienteDTO;
 import INTERFAZ.IEmpleadoDTO;
 import INTERFAZ.IProductoDTO;
+import INTERFAZ.IPromocionDTO;
 import INTERFAZ.IServicioDTO;
 
 /**
@@ -180,5 +181,31 @@ public class AdministradorDTO {
     public ArrayList<EmpleadoDTO> listarEmpleados() {
         IEmpleadoDTO a = factor.obtenerConexionEmpleado(false);
         return a.listarEmpleadoDTO();
+    }
+
+    //---------------------PROMOCION---------------------------------------------------------
+    public boolean registrarPromocion(String nombre, String FechaInicio, String FechaFin) {
+        IPromocionDTO a = factor.obtenerConexionPromocion(false);
+        PromocionDTO p = new PromocionDTO(nombre, FechaInicio, FechaFin);
+        return a.registrarPromocion(p);
+    }
+
+    public boolean actualizarPromocion(int id, String nombre, String FechaInicio, String FechaFin) {
+        IPromocionDTO a = factor.obtenerConexionPromocion(false);
+        return a.actualizarPromocion(id, nombre, FechaInicio, FechaFin);
+    }
+
+//    public ArrayList<PromocionDTO> listarPromocion() {
+//        IPromocionDTO a = factor.obtenerConexionPromocion(false);
+//        return a.listarPromocionDTO();
+//    }
+    public PromocionDTO consultarPromocion(int id) {
+        IPromocionDTO a = factor.obtenerConexionPromocion(false);
+        return a.consultarPromocion(id);
+    }
+
+    public boolean eliminarPromocion(int id) {
+        IPromocionDTO a = factor.obtenerConexionPromocion(false);
+        return a.eliminarPromocion(id);
     }
 }
