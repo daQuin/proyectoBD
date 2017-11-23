@@ -9,6 +9,7 @@ import FACTORY.DaoFactory;
 import INTERFAZ.IAdministradorDTO;
 import java.util.ArrayList;
 import INTERFAZ.IClienteDTO;
+import INTERFAZ.IEmpleadoDTO;
 import INTERFAZ.IProductoDTO;
 import INTERFAZ.IServicioDTO;
 
@@ -71,6 +72,7 @@ public class AdministradorDTO {
         return u2.toString();
     }
 
+    //---------------------CLIENTE----------------------------------------------------------
     public boolean registrarCliente(String nombres, String apellidos, String direccion, String telefono,
             String correo) {
         IClienteDTO a = factor.obtenerConexionCliente(false);
@@ -99,6 +101,7 @@ public class AdministradorDTO {
         return a.listarClienteDTO();
     }
 
+    //---------------------PRODUCTO----------------------------------------------------------
     public boolean registrarProducto(String nombre, String Descripcion, int cantidad, int valor) {
         IProductoDTO a = factor.obtenerConexionProducto(false);
         ProductoDTO p = new ProductoDTO(nombre, Descripcion, cantidad, valor);
@@ -125,6 +128,7 @@ public class AdministradorDTO {
         return a.eliminarProducto(id);
     }
 
+    //---------------------SERVICIO----------------------------------------------------------
     public boolean registrarServicio(String nombre, double valor) {
         IServicioDTO a = factor.obtenerConexionServicio(false);
         ServicioDTO p = new ServicioDTO(nombre, valor);
@@ -135,8 +139,8 @@ public class AdministradorDTO {
         IServicioDTO a = factor.obtenerConexionServicio(false);
         return a.actualizarServicio(id, nombre, valor);
     }
-    
-        public ArrayList<ServicioDTO> listarServicios() {
+
+    public ArrayList<ServicioDTO> listarServicios() {
         IServicioDTO a = factor.obtenerConexionServicio(false);
         return a.listarServicioDTO();
     }
@@ -151,4 +155,30 @@ public class AdministradorDTO {
         return a.eliminarServicio(id);
     }
 
+    //---------------------EMPLEADO----------------------------------------------------------
+    public boolean registrarEmpleado(String nombres, String apellidos, String cedula, String direccion, String telefono, String correo, String fechaIngreso) {
+        IEmpleadoDTO a = factor.obtenerConexionEmpleado(false);
+        EmpleadoDTO aux = new EmpleadoDTO(nombres, apellidos, cedula, direccion, telefono, correo, fechaIngreso);
+        return a.registrarEmpleado(aux);
+    }
+
+    public boolean actualizarEmpleado(int id, String nombres, String apellidos, String cedula, String direccion, String telefono, String correo, String fechaIngreso) {
+        IEmpleadoDTO a = factor.obtenerConexionEmpleado(false);
+        return a.actualizarEmpleado(id, nombres, apellidos, cedula, direccion, telefono, correo, fechaIngreso);
+    }
+
+    public boolean eliminarEmpleado(int id) {
+        IEmpleadoDTO a = factor.obtenerConexionEmpleado(false);
+        return a.eliminarEmpleado(id);
+    }
+
+    public EmpleadoDTO consultarEmpleado(int id) {
+        IEmpleadoDTO a = factor.obtenerConexionEmpleado(false);
+        return a.consultarEmpleado(id);
+    }
+
+    public ArrayList<EmpleadoDTO> listarEmpleados() {
+        IEmpleadoDTO a = factor.obtenerConexionEmpleado(false);
+        return a.listarEmpleadoDTO();
+    }
 }

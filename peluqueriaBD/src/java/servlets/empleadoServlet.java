@@ -40,14 +40,15 @@ public class empleadoServlet extends HttpServlet {
 
             String nombre = request.getParameter("nombre");
             String apellido = request.getParameter("apellido");
-            int cedula = Integer.parseInt("cedula");
+            String cedula = request.getParameter("cedula");
             String direccion = request.getParameter("direccion");
-            int telefono = Integer.parseInt(request.getParameter("cantidad"));
+            String telefono = request.getParameter("telefono");
+            String correo=request.getParameter("correo");
             String fecha = request.getParameter("fecha");
             System.out.println("entramooooosss " + nombre + apellido + cedula+ direccion + telefono + fecha);
             INegocioDTO n = new Negocio();
 
-            if (n.registrarEmpleado(nombre, apellido, cedula, direccion, telefono, fecha)) {
+            if (n.registrarEmpleado(nombre, apellido, cedula, direccion, telefono,correo, fecha)) {
                 //el servlet responde con este mensaje al ajax exito y fallo
                 response.getWriter().print("exito");
             } else {

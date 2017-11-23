@@ -7,6 +7,7 @@ package NEGOCIO;
 
 import DTO.AdministradorDTO;
 import DTO.ClienteDTO;
+import DTO.EmpleadoDTO;
 import DTO.ProductoDTO;
 import DTO.ServicioDTO;
 import INTERFAZ.INegocioDTO;
@@ -23,28 +24,23 @@ public class Negocio implements INegocioDTO {
     public Negocio() {
         admin = new AdministradorDTO();
     }
-    
-    //---------------Metodos del Cliente------------------------------------------
 
+    //---------------Metodos del Cliente------------------------------------------
     @Override
     public boolean registrarCliente(String nombres, String apellidos, String direccion, String telefono, String correo) {
-//
-//        try {
-//            boolean rta = admin.registrarCliente(nombres, apellidos, direccion, telefono, correo);
-//            if (rta) {
-//                System.out.println("Cliente Registrado");
-//                return rta;
-//            } else {
-//                System.out.println("Cliente no Registrado");
-//            }
-//
-//        } catch (Exception e) {
-//        }
-//        return false;
 
-        System.out.println("LLEGOO A NEGOCIO "+ nombres );
+        try {
+            boolean rta = admin.registrarCliente(nombres, apellidos, direccion, telefono, correo);
+            if (rta) {
+                System.out.println("Cliente Registrado");
+                return rta;
+            } else {
+                System.out.println("Cliente no Registrado");
+            }
 
-return true;
+        } catch (Exception e) {
+        }
+        return false;
     }
 
     @Override
@@ -93,13 +89,12 @@ return true;
         }
         return a;
     }
-    
-     //---------------Metodos del Producto------------------------------------------
 
+    //---------------Metodos del Producto------------------------------------------
     @Override
     public boolean registrarProducto(String nombre, String descripcion, int cantidad, int valor) {
 
-          try {
+        try {
             boolean rta = admin.registrarProducto(nombre, descripcion, cantidad, valor);
             if (rta) {
                 System.out.println("producto Registrado");
@@ -113,10 +108,11 @@ return true;
         return false;
 
     }
-     @Override
-    public boolean actualizarProducto(int id,String nombre, String descripcion, int cantidad, int valor) {
-       try {
-            boolean rta = admin.actualizarProducto(id,nombre, descripcion, cantidad, valor);
+
+    @Override
+    public boolean actualizarProducto(int id, String nombre, String descripcion, int cantidad, int valor) {
+        try {
+            boolean rta = admin.actualizarProducto(id, nombre, descripcion, cantidad, valor);
             if (rta) {
                 System.out.println("producto Registrado");
                 return rta;
@@ -128,7 +124,8 @@ return true;
         }
         return false;
     }
-        @Override
+
+    @Override
     public ProductoDTO consultarProducto(int id) {
 
         try {
@@ -142,16 +139,15 @@ return true;
 
     @Override
     public ArrayList<ProductoDTO> listarProducto() {
-   
-         ArrayList<ProductoDTO> a = null;
+
+        ArrayList<ProductoDTO> a = null;
         try {
             a = admin.listarProductos();
         } catch (Exception e) {
             e.printStackTrace();
         }
         return a;
-    
-    
+
     }
 
     @Override
@@ -160,10 +156,10 @@ return true;
         try {
             boolean rta = admin.eliminarProducto(id);
             if (rta == true) {
-                
+
                 return rta;
             } else {
-           
+
             }
 
         } catch (Exception e) {
@@ -173,12 +169,12 @@ return true;
         return false;
 
     }
-     //---------------Metodos del servicio------------------------------------------
-    
-      @Override
-    public boolean registrarServicio(String nombre,double valor) {
+    //---------------Metodos del servicio------------------------------------------
 
-          try {
+    @Override
+    public boolean registrarServicio(String nombre, double valor) {
+
+        try {
             boolean rta = admin.registrarServicio(nombre, valor);
             if (rta) {
                 System.out.println("Servicio Registrado");
@@ -192,11 +188,11 @@ return true;
         return false;
 
     }
-    
-       @Override
-    public boolean actualizarServicio(int id, String nombre,double valor) {
-       try {
-            boolean rta = admin.actualizarServicio(id,nombre,  valor);
+
+    @Override
+    public boolean actualizarServicio(int id, String nombre, double valor) {
+        try {
+            boolean rta = admin.actualizarServicio(id, nombre, valor);
             if (rta) {
                 System.out.println("producto Registrado");
                 return rta;
@@ -208,8 +204,8 @@ return true;
         }
         return false;
     }
-    
-     @Override
+
+    @Override
     public ServicioDTO consultarServicio(int id) {
 
         try {
@@ -223,16 +219,15 @@ return true;
 
     @Override
     public ArrayList<ServicioDTO> listarServicio() {
-   
-         ArrayList<ServicioDTO> a = null;
+
+        ArrayList<ServicioDTO> a = null;
         try {
             a = admin.listarServicios();
         } catch (Exception e) {
             e.printStackTrace();
         }
         return a;
-    
-    
+
     }
 
     @Override
@@ -241,10 +236,10 @@ return true;
         try {
             boolean rta = admin.eliminarServicio(id);
             if (rta == true) {
-                
+
                 return rta;
             } else {
-           
+
             }
 
         } catch (Exception e) {
@@ -255,30 +250,104 @@ return true;
 
     }
 
+    //------------------Metodos del Empleado------------------------------------
     @Override
-    public boolean registrarEmpleado(String nombre, String apellido, int cedula, String direccion, int telefono, String fecha) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+   public boolean registrarEmpleado(String nombre, String apellido, String cedula, String direccion, String telefono, String correo,String fechaIngreso) {
+
+        try {
+            boolean rta = admin.registrarEmpleado(nombre, apellido, cedula, direccion, telefono, correo, fechaIngreso);
+            if (rta) {
+                System.out.println("Empleado Registrado");
+                return rta;
+            } else {
+                System.out.println("Empleado no Registrado");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("LLEGOO A NEGOCIO " + nombre);
+
+        return true;
+    }
+   
+    @Override
+    public boolean EliminarEmpleado(int id) {
+
+        try {
+            boolean rta = admin.eliminarEmpleado(id);
+            if (rta == true) {
+                System.out.println("Empleado #" + id + "  Eliminado");
+                return rta;
+            } else {
+                System.out.println("Empleado no eliminado");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return false;
     }
 
     @Override
+    public boolean actualizarEmpleado(int id, String nombres,String apellidos,String cedula,String direccion, String telefono,String correo,String fechaIngreso) {
+     
+    try {
+            boolean rta = admin.actualizarEmpleado(id, nombres, apellidos, cedula, direccion, telefono, correo, fechaIngreso);
+            if (rta) {
+                System.out.println("Empleado Registrado");
+                return rta;
+            } else {
+                System.out.println("Empleado no Registrado");
+            }
+
+        } catch (Exception e) {
+        }
+        return false;
+    }
+
+    @Override
+    public EmpleadoDTO consultarEmpleado(int id) {
+
+        try {
+            EmpleadoDTO rta = admin.consultarEmpleado(id);
+            return rta;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public ArrayList<EmpleadoDTO> listarEmpleadoDTO() {
+        ArrayList<EmpleadoDTO> a = null;
+        try {
+            a = admin.listarEmpleados();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return a;
+    }
+   
+   
+   
+
+    //------------------Metodos de inicio de sesion------------------------------------
+    @Override
     public boolean iniciarSesion(String nom, String pas) {
-    
-        if(nom.equalsIgnoreCase("daniel") && pas.equalsIgnoreCase("pass")){
+
+        if (nom.equalsIgnoreCase("daniel") && pas.equalsIgnoreCase("pass")) {
             return true;
         }
-        
+
         return false;
     }
 
     @Override
     public void cerrarSesion() {
 
-        
-        
     }
 
-    
-    
-    
-    
 }

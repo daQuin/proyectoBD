@@ -17,9 +17,11 @@ public class Pruebas {
     public static void main(String[] args) {
         AdministradorDTO a = new AdministradorDTO();
         
-        a.registrarCliente("daniel", "Quintero", "Calle 2", "2313456", "daniel@gmail.com");
-        a.registrarProducto("cera ", "cera para cabello rizo", 5, 500);
-        a.registrarProducto("cera2 ", "cera para cabello rizo", 5, 500);
+//        a.registrarCliente("Jose", "Carvajalino", "Calle 4", "3125218237", "josedismar@gmail.com");
+//        a.registrarProducto("cera ", "cera para cabello rizo", 5, 500);
+//        a.registrarProducto("cera2 ", "cera para cabello rizo", 5, 500);
+//        a.registrarEmpleado("Gilibert", "no se ", "12345", "su casa", "3210987",  "gilibert@gmail.com", "01/05/2011");
+        a.eliminarProducto(4);
     }
     
 }

@@ -6,6 +6,7 @@
 package INTERFAZ;
 
 import DTO.ClienteDTO;
+import DTO.EmpleadoDTO;
 import DTO.ProductoDTO;
 import DTO.ServicioDTO;
 import java.util.ArrayList;
@@ -37,8 +38,13 @@ public interface INegocioDTO {
     public ServicioDTO consultarServicio(int id);
     public ArrayList<ServicioDTO> listarServicio();
 
-    public boolean registrarEmpleado(String nombre, String apellido, int cedula, String direccion, int telefono, String fecha);
-
+    public boolean registrarEmpleado(String nombre, String apellido, String cedula, String direccion, String telefono, String correo,String fecha);
+    public boolean EliminarEmpleado(int id);
+    public boolean actualizarEmpleado(int id, String nombres,String apellidos,String cedula,String direccion,
+            String telefono,String correo,String fechaIngreso);
+    public EmpleadoDTO consultarEmpleado(int id);
+    public ArrayList<EmpleadoDTO> listarEmpleadoDTO();
+    
      public boolean iniciarSesion(String nom,  String pas);
      
     public void cerrarSesion();
