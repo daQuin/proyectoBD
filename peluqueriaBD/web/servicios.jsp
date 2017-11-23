@@ -50,31 +50,39 @@
         <div class="container">
             <div class="row text-center"><br>
                 <%           if (s != null && !s.isEmpty()) {
+                        int contador = 0;
                         for (ServicioDTO ser : s) {
+                            contador++;
                             ser.toString();
+                            if (contador <= 3) {
                 %>
+
+
                 <div class="col-md-4 col-sm-4">
                     <img src="https://www.lastermasderuham.com/wp-content/uploads/peluqueria-basicos-corte.jpg" alt="" class="img-circle img-thumbnail" width="150" height="150">
                     <h3><%=ser.getNombre()%></h3>
                     <p><%=ser.getDescripcion()%></p>
                 </div>
 
+                <%
+                        }
+                    }
+                } else {
+                %>
 
             </div>
-
-            <%
-                }
-            } else {
-            %>
-
-
-            <h1>NO EXISTEN PRODUCTOS REGISTRADOS</h1>
-
-
-            <%
-                }
-            %>
         </div>
+
+
+
+
+        <h1>NO EXISTEN PRODUCTOS REGISTRADOS</h1>
+
+
+        <%
+            }
+        %>
+
 
 
 
