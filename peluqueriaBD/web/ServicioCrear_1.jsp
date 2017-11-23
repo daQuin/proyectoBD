@@ -92,6 +92,20 @@
                             </td>
 
                         </tr>
+
+                        <tr>
+                            <td>
+                                <div style="text-align: left;" >Descripcion :&nbsp; &nbsp; &nbsp;&nbsp;</div>
+
+                            </td>
+
+                            <td>
+
+                                <input  placeholder="descripcion"  id="descripcionservicio" name="descripcion" class="ufps-input "  type="text" required autofocus></input>
+
+                            </td>
+                        </tr>
+
                     </table>
                     <div style="display: none; color: red;" class="text-center" id="msj"></div>
                     <br/>

@@ -5,6 +5,7 @@
  */
 package servlets;
 
+import DTO.EmpleadoDTO;
 import DTO.ProductoDTO;
 import DTO.ServicioDTO;
 import INTERFAZ.INegocioDTO;
@@ -36,18 +37,18 @@ public class servicioServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-     protected void registrarServicio(HttpServletRequest request, HttpServletResponse response)
+    protected void registrarServicio(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
 
             String nombre = request.getParameter("nombre");
             double valor = Double.parseDouble(request.getParameter("valor"));
-            String descripcion=request.getParameter("descripcion");
+            String descripcion = request.getParameter("descripcion");
             System.out.println("entramooooosss " + nombre + valor);
             INegocioDTO n = new Negocio();
 
-            if (n.registrarServicio(nombre, valor,descripcion)) {
+            if (n.registrarServicio(nombre, valor, descripcion)) {
                 //el servlet responde con este mensaje al ajax exito y fallo
                 response.getWriter().print("exito");
             } else {
@@ -57,8 +58,8 @@ public class servicioServlet extends HttpServlet {
             Logger.getLogger(clienteServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-     
-      public ArrayList listarServicios(HttpServletRequest request) throws Exception {
+
+    public ArrayList listarServicios(HttpServletRequest request) throws Exception {
 
         INegocioDTO n = (INegocioDTO) request.getSession().getAttribute("negocio");
         if (n == null) {
@@ -66,7 +67,9 @@ public class servicioServlet extends HttpServlet {
         }
         ArrayList<ServicioDTO> as = new ArrayList<>();
         as = n.listarServicio();
-       
+        for (ServicioDTO a : as) {
+            System.out.println("producto desde servlet: " + a.getNombre());
+        }
         return as;
     }
 
@@ -99,7 +102,8 @@ public class servicioServlet extends HttpServlet {
         if (request.getParameter("crearServicio") != null) {
             System.out.println("enntro1");
             registrarServicio(request, response);
-    }}
+        }
+    }
 
     /**
      * Returns a short description of the servlet.
