@@ -3,13 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-function registrarServicio() {
-    nombre = $("#nombreservicio").val();
-    valor = $("#valorservicio").val();   
+function registrarEmpleado() {
+    nombre = $("#nombreempleado").val();
+    apellido = $("#apellidoempleado").val();
+    cedula = $("#cedulaempleado").val();
+    direccion = $("#direccionempleado").val();
+    telefono = $("#telefonoempleado").val();
+    correo = $("#correoempleado").val();
+    fecha = $("#fechaingresoempleado").val();
+    
     $.ajax({
-        url: 'servicioServlet',
+        url: 'empleadoServlet',
         type: 'POST',
-        data: {crearServicio: "true", nombre: nombre,valor: valor}
+        data: {crearProducto: "true", nombre: nombre, apellido: apellido, cedula: cedula, direccion: direccion, telefono: telefono, correo: correo,fecha: fecha}
     }).done(function (sub) {
 
         if ((sub.indexOf('exito') >= 0)) {
@@ -24,4 +30,3 @@ function registrarServicio() {
 
     });
 }
-

@@ -19,10 +19,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author DELL
+ * @author nelsoncamilo
  */
-@WebServlet(name = "servicioServlet", urlPatterns = {"/servicioServlet"})
-public class servicioServlet extends HttpServlet {
+@WebServlet(name = "empleadoServlet", urlPatterns = {"/empleadoServlet"})
+public class empleadoServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,17 +33,21 @@ public class servicioServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-     protected void registrarServicio(HttpServletRequest request, HttpServletResponse response)
+    protected void registrarEmpleado(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
 
             String nombre = request.getParameter("nombre");
-            double valor = Double.parseDouble(request.getParameter("valor"));
-            System.out.println("entramooooosss " + nombre + valor);
+            String apellido = request.getParameter("apellido");
+            int cedula = Integer.parseInt("cedula");
+            String direccion = request.getParameter("direccion");
+            int telefono = Integer.parseInt(request.getParameter("cantidad"));
+            date fecha = request.getParameter("fecha");
+            System.out.println("entramooooosss " + nombre + apellido + cedula+ direccion + telefono + fecha);
             INegocioDTO n = new Negocio();
 
-            if (n.registrarServicio(nombre, valor)) {
+            if (n.registrarEmpleado(nombre, apellido, cedula, direccion, telefono, fecha)) {
                 //el servlet responde con este mensaje al ajax exito y fallo
                 response.getWriter().print("exito");
             } else {
@@ -66,7 +70,7 @@ public class servicioServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        registrarServicio(request, response);
+        registrarEmpleado(request, response);
     }
 
     /**
@@ -80,10 +84,8 @@ public class servicioServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if (request.getParameter("crearServicio") != null) {
-            System.out.println("enntro1");
-            registrarServicio(request, response);
-    }}
+        registrarEmpleado(request, response);
+    }
 
     /**
      * Returns a short description of the servlet.
