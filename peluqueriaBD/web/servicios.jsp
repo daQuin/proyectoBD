@@ -26,7 +26,7 @@
                     <!--Boton Servicios -->
                     <li><a href="servicios.jsp">Servicios</a></li>
                     <!--Boton Citas -->
-                    <li><a href="cita.html">Citas</a></li>
+                    <li><a href="citas.jsp">Citas</a></li>
                 </ul>
                 <!--Barra de Registro y Ingreso -->
                 <ul class="nav navbar-nav navbar-right">
@@ -54,7 +54,7 @@
                         for (ServicioDTO ser : s) {
                             contador++;
                             ser.toString();
-                            if (contador <= 3) {
+                            if (contador <= 10) {
                 %>
 
 

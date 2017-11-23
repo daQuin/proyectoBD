@@ -42,7 +42,7 @@ and open the template in the editor.
                     <!--Boton Servicios -->
                     <li><a href="servicios.jsp">Servicios</a></li>
                     <!--Boton Citas -->
-                    <li><a href="cita.html">Citas</a></li>
+                    <li><a href="citas.jsp">Citas</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <a class="navbar">Ya tienes una cuenta?</a>
