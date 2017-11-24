@@ -418,10 +418,10 @@ public class Negocio implements INegocioDTO {
     
     //-------------Metodos de citas------------------------------------------------
         @Override
-    public boolean registrarCita(String fecha,String fechaCreacion, int idCliente,int idPromocion) {
+    public boolean registrarCita(String fecha,String fechaCreacion, String nombreCliente, String correo,String servicio) {
 
         try {
-            boolean rta = admin.registrarCita(fecha, fechaCreacion, idCliente, idPromocion);
+            boolean rta = admin.registrarCita(fecha, fechaCreacion, nombreCliente, correo, servicio);
             if (rta) {
                 return rta;
             } else {
@@ -434,9 +434,9 @@ public class Negocio implements INegocioDTO {
     }
 
     @Override
-    public boolean actualizarCita(int id, String fecha,String fechaCreacion, int idCliente,int idPromocion) {
+    public boolean actualizarCita(int id, String fecha,String fechaCreacion, int idCliente,String servicio) {
         try {
-            boolean rta = admin.actualizarCita(id, fecha, fechaCreacion, idCliente, idPromocion);
+            boolean rta = admin.actualizarCita(id, fecha, fechaCreacion, idCliente, servicio);
             if (rta) {
                 return rta;
             } else {

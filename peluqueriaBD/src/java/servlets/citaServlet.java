@@ -5,14 +5,10 @@
  */
 package servlets;
 
-import DTO.EmpleadoDTO;
-import DTO.ProductoDTO;
-import DTO.ServicioDTO;
 import INTERFAZ.INegocioDTO;
 import NEGOCIO.Negocio;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -25,8 +21,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author DELL
  */
-@WebServlet(name = "servicioServlet", urlPatterns = {"/servicioServlet"})
-public class servicioServlet extends HttpServlet {
+@WebServlet(name = "citaServlet", urlPatterns = {"/citaServlet"})
+public class citaServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,18 +33,19 @@ public class servicioServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void registrarServicio(HttpServletRequest request, HttpServletResponse response)
+    protected void registrarCita(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
 
-            String nombre = request.getParameter("nombre");
-            double valor = Double.parseDouble(request.getParameter("valor"));
-            String descripcion = request.getParameter("descripcion");
+            String nombre = request.getParameter("cliente");
+            String correo = request.getParameter("pass");
+            String servicio = request.getParameter("servicio");
+            String fecha = request.getParameter("fecha");
+
             INegocioDTO n = new Negocio();
 
-            System.out.println("Servlet: " + nombre + valor + descripcion);
-            if (n.registrarServicio(nombre, valor, descripcion)) {
+            if (n.registrarCita("", fecha, nombre, correo, servicio)) {
                 //el servlet responde con este mensaje al ajax exito y fallo
                 response.getWriter().print("exito");
             } else {
@@ -56,41 +53,6 @@ public class servicioServlet extends HttpServlet {
             }
         } catch (Exception ex) {
             Logger.getLogger(clienteServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    public ArrayList listarServicios(HttpServletRequest request) throws Exception {
-
-        INegocioDTO n = (INegocioDTO) request.getSession().getAttribute("negocio");
-        if (n == null) {
-            n = new Negocio();
-        }
-        ArrayList<ServicioDTO> as = new ArrayList<>();
-        as = n.listarServicio();
-
-        return as;
-    }
-
-    protected void eliminarServicio(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            System.out.println("llegooooo");
-            int idServicio = Integer.parseInt(request.getParameter("idservicio"));
-            System.out.println("ELIMINAR SERVICIO: " + idServicio);
-            INegocioDTO n = (INegocioDTO) request.getSession().getAttribute("negocio");
-            if (n == null) {
-                n = new Negocio();
-            }
-
-            if (n.EliminarServicio(idServicio)) {
-                //el servlet responde con este mensaje al ajax exito y fallo
-                response.getWriter().print("exito");
-            } else {
-                response.getWriter().print("fallo");
-            }
-        } catch (Exception ex) {
-            Logger.getLogger(productoServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -106,7 +68,7 @@ public class servicioServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        registrarServicio(request, response);
+
     }
 
     /**
@@ -120,11 +82,8 @@ public class servicioServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if (request.getParameter("crearServicio") != null) {
-            registrarServicio(request, response);
-        }
-        if (request.getParameter("eliminarServicio") != null) {
-            eliminarServicio(request, response);
+        if (request.getParameter("crearCita") != null) {
+            registrarCita(request, response);
         }
     }
 

@@ -28,8 +28,11 @@ public class Pruebas {
         // a.registrarServicio("Tinturado", 30000, "Tinturado dama y caballero");
        // a.actualizarServicio(2,"Tinturado", 30000, "Tinturado damas caballeros y niños");
        
-        System.out.println(a.consultarCliente(1));
-        System.out.println("cualquier cosa");
+//        System.out.println(a.consultarCliente(1));
+//        System.out.println("cualquier cosa");
+
+a.registrarCita("22/07/2017", "22/08/2017", "Monica", "d@gamil.com", "Manicure");
+        System.out.println("ss");
     }
     
 }

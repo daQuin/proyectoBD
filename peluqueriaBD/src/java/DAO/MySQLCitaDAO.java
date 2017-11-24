@@ -29,12 +29,13 @@ public class MySQLCitaDAO extends MySQLconexion  implements INTERFAZ.ICitaDTO{
         boolean exito = false;
         try {
             PreparedStatement stmt = null;
-            stmt = super.getConn().prepareStatement("insert into cita (id,fecha,fechacreacion,cliente,promocion,"
-                    + ") values (0,?,?,0,0)");
+            stmt = super.getConn().prepareStatement("insert into cita (id,fecha,fechacreacion,cliente_id,servicio"
+                    + ") values (0,?,?,?,?)");
+            System.out.println("Cliente: "+ a.getIdCliente().getId());
             stmt.setString(1, a.getFecha());
             stmt.setString(2, a.getFechaCreacion());
             stmt.setInt(3, a.getIdCliente().getId());
-            stmt.setInt(4, a.getIdPromocion().getId());
+            stmt.setString(4, a.getServicio());
 
             int aux = stmt.executeUpdate();
             if(aux > 0){
@@ -93,17 +94,17 @@ public class MySQLCitaDAO extends MySQLconexion  implements INTERFAZ.ICitaDTO{
         return exito;}
 
     @Override
-    public boolean actualizarCita(int id, String fecha, String fechaCreacion,int idCliente, int idPromocion) {
+    public boolean actualizarCita(int id, String fecha, String fechaCreacion,int idCliente, String servicio) {
     boolean exito = false;
         PreparedStatement smtm = null;
         try {
-            smtm = super.getConn().prepareStatement("update cita set fecha=?,fechacreacion=?,idcliente=?,"
-                    + "idpromocion=? where id='" + id + "'");
+            smtm = super.getConn().prepareStatement("update cita set fecha=?,fechacreacion=?,cliente_id=?,"
+                    + "servicio=? where id='" + id + "'");
 
             smtm.setString(1, fecha);
             smtm.setString(2, fechaCreacion);
             smtm.setInt(3, idCliente);
-            smtm.setInt(4, idPromocion);
+            smtm.setString(4, servicio);
 
             int total = smtm.executeUpdate();
             if (total > 0) {
@@ -128,7 +129,7 @@ public class MySQLCitaDAO extends MySQLconexion  implements INTERFAZ.ICitaDTO{
                 MySQLPromocionDAO  p= new MySQLPromocionDAO(false);
                 aux.setFecha(a.getString(2));
                 aux.setIdCliente(c.consultarCliente(a.getInt(3)));
-                aux.setIdPromocion(p.consultarPromocion(a.getInt(4)));
+                aux.setServicio(a.getString(4));
              }
 
             a.close();
@@ -159,7 +160,7 @@ public class MySQLCitaDAO extends MySQLconexion  implements INTERFAZ.ICitaDTO{
                 vis.setFecha(aux.getString(2));
                 vis.setFechaCreacion(aux.getString(3));
                 vis.setIdCliente(c.consultarCliente(aux.getInt(4)));
-                vis.setIdPromocion(p.consultarPromocion(aux.getInt(5)));
+                vis.setServicio(aux.getString(5));
                 a.add(vis);
             }
             aux.close();

@@ -14,6 +14,7 @@ public interface IClienteDTO {
   public boolean eliminarCliente(int id);
   public boolean actualizarCliente(int id, String nombres,String apellidos,String direccion, String telefono,String correo);
   public ClienteDTO consultarCliente(int id);
+  public ClienteDTO consultarClienteNC(String nombre, String Correo);
   public ArrayList<ClienteDTO> listarClienteDTO();
 
   

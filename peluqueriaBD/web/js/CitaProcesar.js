@@ -1,16 +1,16 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-function registrarServicio() {
-    nombre = $("#nombreservicio").val();
-    valor = $("#valorservicio").val(); 
-    descripcion = $("#textArea").val();
+
+function registrarCita() {
+    
+    cliente = $("#nombre").val();
+    pass = $("#pass").val();
+    servicio = $("#servicio").val();
+    fecha = $("#fecha").val();
+    
+    
     $.ajax({
-        url: 'servicioServlet',
+        url: 'citaServlet',
         type: 'POST',
-        data: {crearServicio: "true", nombre: nombre,valor: valor, descripcion: descripcion}
+        data: {crearCita: "true",  cliente: cliente, pass: pass, servicio: servicio, fecha: fecha}
     }).done(function (sub) {
 
         if ((sub.indexOf('exito') >= 0)) {
@@ -21,23 +21,19 @@ function registrarServicio() {
             $("#msj").html("<br> Error de registro");
             $("#msj").slideDown("slow").delay(1000).slideUp("fast");
         }
-        vaciar();
+  
 
     });
 }
-function vaciar() {
-    $("#nombreservicio").val("");
-    $("#valorservicio").val("");
-    $("#textArea").val("");
-      
 
-}
 
-function eliminarServicio(id) {
-     $.ajax({
-        url: 'servicioServlet',
+
+function eliminarVisita(id) {
+
+    $.ajax({
+        url: 'visitaServlet',
         type: 'POST',
-        data: {eliminarServicio: "true", idservicio: id}
+        data: {eliminarVisita: "true", idvisita: id}
     }).done(function (sub) {
 
        if ((sub.indexOf('exito') >= 0)) {
@@ -67,3 +63,6 @@ function eliminarServicio(id) {
 
     });
 }
+
+
+

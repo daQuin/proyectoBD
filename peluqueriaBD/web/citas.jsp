@@ -74,8 +74,7 @@ and open the template in the editor.
             <form align="center" class="login" name="formagregar" onSubmit="registrarCita();
                     return false" >
 
-                <h4 class="align-left">Ingrese la informacion del producto</h4>
-
+              
                 <table align="center" border="0" style="width: 500px; margin-left: 30%;" class="table-responsive table-condensed table-hover">
                     <tr>
                         <td>
@@ -118,7 +117,7 @@ and open the template in the editor.
                                         for (ServicioDTO serv : s) {
 
                                 %>
-                                <option value="<%=serv.getId()%>"><%=serv.getNombre()%></option> 
+                                <option value="<%=serv.getNombre()%>"><%=serv.getNombre()%></option> 
                                 <%
                                         }
                                     

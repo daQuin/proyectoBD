@@ -24,7 +24,14 @@ function registrarProducto() {
     });
 }
 
+function vaciar() {
+    $("#nombreproducto").val("");
+    $("#textArea").val("");
+    $("#cantidadproducto").val("");
+    $("#valorproducto").val("");
+    
 
+}
 
 
 
@@ -67,19 +74,7 @@ function consultarConv() {
 
 }
 
-function vaciar() {
-    $("#fechainicio").val("");
-    $("#fechafin").val("");
-    $("#tipo").val("");
-    $("#fechainiciovisita").val("");
-    $("#fechafinvisita").val("");
-    $("#cupos").val("");
-    $("#inversionestudiante").val("");
-    $("#nombreEmpresa").val("");
-    $("#ciudad").val("");
-    $("#direccion").val("");
 
-}
 
 
 function eliminarProducto(id) {

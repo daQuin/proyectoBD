@@ -11,11 +11,11 @@ function registrarEmpleado() {
     telefono = $("#telefonoempleado").val();
     correo = $("#correoempleado").val();
     fecha = $("#fechaingresoempleado").val();
-    
+
     $.ajax({
         url: 'empleadoServlet',
         type: 'POST',
-        data: {crearProducto: "true", nombre: nombre, apellido: apellido, cedula: cedula, direccion: direccion, telefono: telefono, correo: correo,fecha: fecha}
+        data: {crearEmpleado: "true", nombre: nombre, apellido: apellido, cedula: cedula, direccion: direccion, telefono: telefono, correo: correo, fecha: fecha}
     }).done(function (sub) {
 
         if ((sub.indexOf('exito') >= 0)) {
@@ -27,6 +27,53 @@ function registrarEmpleado() {
             $("#msj").slideDown("slow").delay(1000).slideUp("fast");
         }
         vaciar();
+
+    });
+}
+
+function vaciar() {
+    $("#nombreempleado").val("");
+    $("#apellidoempleado").val("");
+    $("#cedulaempleado").val("");
+    $("#direccionempleado").val("");
+    $("#telefonoempleado").val("");
+    $("#correoempleado").val("");
+    $("#fechaingresoempleado").val("");
+}
+
+
+function eliminarEmpleado(id) {
+   
+    $.ajax({
+        url: 'empleadoServlet',
+        type: 'POST',
+        data: {eliminarEmpleado: "true", idempleado: id}
+    }).done(function (sub) {
+
+       if ((sub.indexOf('exito') >= 0)) {
+
+            var table = $('#table2').DataTable();
+            table.destroy();
+
+            $("#myModalEliminar" + id).click();
+
+            setTimeout(function () {
+                $('.tooltip').remove();
+                $("#fila" + id).remove();
+                $("#table2").DataTable();
+
+            }, 300);
+
+
+        } else {
+            $("div").remove("#mensajeAlerta");
+            $('#mensaje').append("<br/><div id='mensajeAlerta'><font color='#d61117'>" + sub + "</font></div><br/>");
+
+
+            setTimeout(function () {
+                $("h3").remove("#mensajeAlerta");
+            }, 2000);
+        }
 
     });
 }

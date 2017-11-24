@@ -53,9 +53,9 @@ public interface INegocioDTO {
     public PromocionDTO consultarPromocion(int id);
     //public ArrayList<PromocionDTO> listarPromocion();
     
-    public boolean registrarCita(String fecha,String fechaCreacion, int idCliente,int idPromocion);
+    public boolean registrarCita(String fecha,String fechaCreacion,String nombre, String correo,String servicio);
     public boolean EliminarCita(int id);
-    public boolean actualizarCita(int id, String fecha,String fechaCreacion, int idCliente,int idPromocion);
+    public boolean actualizarCita(int id, String fecha,String fechaCreacion, int idCliente,String servicio);
     public CitaDTO consultarCita(int id);
     public ArrayList<CitaDTO> listarCita();
     

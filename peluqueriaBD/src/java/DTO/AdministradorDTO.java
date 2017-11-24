@@ -14,6 +14,9 @@ import INTERFAZ.IEmpleadoDTO;
 import INTERFAZ.IProductoDTO;
 import INTERFAZ.IPromocionDTO;
 import INTERFAZ.IServicioDTO;
+import java.sql.Date;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 /**
  *
@@ -96,6 +99,11 @@ public class AdministradorDTO {
     public ClienteDTO consultarCliente(int id) {
         IClienteDTO a = factor.obtenerConexionCliente(false);
         return a.consultarCliente(id);
+    }
+    
+     public ClienteDTO consultarClienteNC(String nombre, String correo) {
+        IClienteDTO a = factor.obtenerConexionCliente(false);
+        return a.consultarClienteNC(nombre, correo);
     }
 
     public ArrayList<ClienteDTO> listarClientes() {
@@ -210,16 +218,31 @@ public class AdministradorDTO {
         return a.eliminarPromocion(id);
     }
      //---------------------CITA--------------------------------------------------------
-     public boolean registrarCita(String fecha,String fechaCreacion, int idCliente,int idPromocion) {
-        ICitaDTO a = factor.obtenerConexionCita(false);
+    
+    public String ObtenerFechaActual(){
+         Calendar fecha = new GregorianCalendar();
+     
+        int año = fecha.get(Calendar.YEAR);
+        int mes = fecha.get(Calendar.MONTH);
+        int dia = fecha.get(Calendar.DAY_OF_MONTH);
         
-        CitaDTO p = new CitaDTO(fecha, fechaCreacion, consultarCliente(idCliente), consultarPromocion(idPromocion));
+       return (dia + "/" + (mes+1) + "/" + año);
+       
+    }
+    
+     public boolean registrarCita(String fecha,String fechaCreacion, String nombre, String correo, String servicio) {
+        ICitaDTO a = factor.obtenerConexionCita(false);
+        ClienteDTO c = new ClienteDTO();
+        c=consultarClienteNC(nombre, correo);
+        if(c!=null||c.getCorreo()!=null ){
+        CitaDTO p = new CitaDTO(ObtenerFechaActual(), fechaCreacion, c, servicio);
         return a.registrarCita(p);
     }
-
-    public boolean actualizarCita(int id, String fecha,String fechaCreacion, int idCliente,int idPromocion) {
+        return false;
+     }
+    public boolean actualizarCita(int id, String fecha,String fechaCreacion, int idCliente,String servicio) {
         ICitaDTO a = factor.obtenerConexionCita(false);
-        return a.actualizarCita(id, fecha, fechaCreacion, idCliente, idPromocion);
+        return a.actualizarCita(id, fecha, fechaCreacion, idCliente, servicio);
     }
 
     public ArrayList<CitaDTO> listarCita() {

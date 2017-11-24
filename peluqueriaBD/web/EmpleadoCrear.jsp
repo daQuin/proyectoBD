@@ -27,12 +27,14 @@
                 </div> 
 
 
-                <form align="center" class="login" name="formagregar" onSubmit="registrarProducto();
+                <form align="center" class="login" name="formagregar" onSubmit="registrarEmpleado();
                         return false" >
 
-                    <h4 class="align-left">Ingrese la informacion del producto</h4>
+
 
                     <table align="center" border="0" class="table-responsive table-condensed table-hover">
+
+
                         <tr>
                             <td>
                                 <div style="text-align: left;" >Nombre :&nbsp; &nbsp; &nbsp;&nbsp;</div>
@@ -41,61 +43,88 @@
 
                             <td>
 
-                                <input  placeholder="Nombre" id="nombreproducto" name="nombreproducto" class="ufps-input"  type="text" required autofocus></input>
+                                <input  placeholder="nombre"  id="nombreempleado" name="nombre" class="ufps-input "  type="text" required autofocus></input>
+
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div style="text-align: left;" >Apellido :&nbsp; &nbsp; &nbsp;&nbsp;</div>
+
+                            </td>
+
+                            <td>
+
+                                <input  placeholder="apellido"  id="apellidoempleado" name="apellido" class="ufps-input "  type="text" required autofocus></input>
 
                             </td>
                         </tr>
 
                         <tr>
                             <td> 
-                                <div style="text-align: left;">Descripcion :&nbsp; &nbsp; &nbsp;&nbsp; </div>  
+                                <div style="text-align: left;">Cedula : </div>  
                             </td>
                             <td> 
-                                <div>
-                                    <textarea  name="textArea" id="textArea"   placeholder="Escriba Aqui su mensaje.."></textarea>
-                                </div>
+
+                                <input class="ufps-input" id="cedulaempleado" name="cedula" placeholder="cedula" type="number"required autofocus>
+
 
                             </td>
 
                         </tr>
-
+                       
                         <tr>
                             <td>
-                                <div style="text-align: left;" >Cantidad :&nbsp; &nbsp; &nbsp;&nbsp;</div>
+                                <div style="text-align: left;" >Direccion :&nbsp; &nbsp; &nbsp;&nbsp;</div>
 
                             </td>
 
                             <td>
 
-                                <input  placeholder="Cantidad" id="cantidadproducto" name="cantidadproducto" class="ufps-input "  type="text" required autofocus></input>
+                                <input  placeholder="direccion"  id="direccionempleado" name="direccion" class="ufps-input "  type="text" required autofocus></input>
 
                             </td>
                         </tr>
 
                         <tr>
-                            <td>
-                                <div style="text-align: left;" >valor :&nbsp; &nbsp; &nbsp;&nbsp;</div>
-
-                            </td>
-
-                            <td>
-
-                                <input  placeholder="Valor" id="valorproducto" name="valorproducto" class="ufps-input "  type="text" required autofocus></input>
-
-                            </td>
-                        </tr>
-                    </table>
-                    <br>
-                    <table align="center" border="0" class="table-responsive table-condensed table-hover">
-                        <tr>
-                            <td>
-                                <div style="text-align: left;">Imagen :&nbsp; &nbsp; &nbsp;&nbsp; </div>
+                            <td> 
+                                <div style="text-align: left;">Telefono : </div>  
                             </td>
                             <td> 
-                                <input  type="file" class="ufps-input" placeholder="Imagen" name="file1" id="file1" required autofocus>
+
+                                <input class="ufps-input" id="telefonoempleado" name="telefono" placeholder="telefono" type="number"required autofocus>
+
+
+                            </td>
+
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div style="text-align: left;" >Correo :&nbsp; &nbsp; &nbsp;&nbsp;</div>
+
+                            </td>
+
+                            <td>
+
+                                <input  placeholder="example@gmail.com"  id="correoempleado" name="correo" class="ufps-input "  type="text" required autofocus></input>
 
                             </td>
                         </tr>
+                        
+                        <tr>
+                            <td>
+                                <div style="text-align: left;" >Fecha ingreso :&nbsp; &nbsp; &nbsp;&nbsp;</div>
+
+                            </td>
+
+                            <td>
+
+                                <input  placeholder="Fecha ingreso" id="fechaingresoempleado" name="fechaingreso" class="ufps-input "  type="date" required autofocus></input>
+                            </td>
+                        </tr>
+
 
                     </table>
                     <div style="display: none; color: red;" class="text-center" id="msj"></div>
@@ -129,6 +158,6 @@
 <script src="js/util.js"></script>
 <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 <script src="js/main.js"></script>
-<script src="js/ProductoProcesar.js"></script>
+<script src="js/empleadoProcesar.js"></script>
 </body>
 </html>

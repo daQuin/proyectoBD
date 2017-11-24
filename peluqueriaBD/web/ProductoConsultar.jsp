@@ -47,7 +47,7 @@
 
 
                 <div align="center">
-                    <font color='#d61117'> No se encontraron Convocatorias registrados.</font>
+                    <font color='#d61117'> No se encontraron producto registrados.</font>
                 </div>
 
 

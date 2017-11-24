@@ -81,7 +81,7 @@ public class empleadoServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
 
-            int idEmpleado = Integer.parseInt(request.getParameter("idepmleado"));
+            int idEmpleado = Integer.parseInt(request.getParameter("idempleado"));
             
             INegocioDTO n = (INegocioDTO) request.getSession().getAttribute("negocio");
             if (n == null) {
@@ -95,7 +95,7 @@ public class empleadoServlet extends HttpServlet {
                 response.getWriter().print("fallo");
             }
         } catch (Exception ex) {
-            Logger.getLogger(productoServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(empleadoServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -112,7 +112,7 @@ public class empleadoServlet extends HttpServlet {
             protected void doGet
             (HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                registrarEmpleado(request, response);
+            
             }
 
             /**
@@ -127,7 +127,12 @@ public class empleadoServlet extends HttpServlet {
             protected void doPost
             (HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+                if(request.getParameter("crearEmpleado")!=null){
                 registrarEmpleado(request, response);
+            }
+                if(request.getParameter("eliminarEmpleado")!=null){
+                    eliminarEmpleado(request, response);
+                }
             }
 
             /**

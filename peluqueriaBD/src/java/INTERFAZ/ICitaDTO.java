@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public interface ICitaDTO {
   public boolean registrarCita(CitaDTO a);
   public boolean eliminarCita(int id);
-  public boolean actualizarCita(int id, String fecha,String fechaCreacion, int idCliente,int idPromocion);
+  public boolean actualizarCita(int id, String fecha,String fechaCreacion, int idCliente,String servicio);
   public CitaDTO consultarCita(int id);  
   public ArrayList<CitaDTO> listarCitaDTO();
 }

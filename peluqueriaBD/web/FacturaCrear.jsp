@@ -73,38 +73,7 @@
                             </td>
 
                         </tr>
-                        <!--- Select que puede servir para otra cosa
-                        <tr>
-                            <td>
-                                <div style="text-align: left;" >Tipo:&nbsp; &nbsp; &nbsp;&nbsp;</div>
-
-                            </td>
-
-                            <td>
-                                <select id="tipo" name="tipo" class="ufps-input ">
-                                    <option value="Corte">Corte</option>
-                                    <option value="Corte">Tintura</option>
-                                    <option value="Corte">Peinado</option>
-                                    <option value="Corte">Pedicura</option> 
-                                    <option value="Corte">Depilacion</option>
-                                    <option value="Corte">Manicura</option>
-
-                                </select>
-                            </td>
-                        </tr>-->
-                        <!-- Fecha que sirve para otra plantilla
-                        <tr>
-                            <td>
-                                <div style="text-align: left;" >Fecha inicio de la visita :&nbsp; &nbsp; &nbsp;&nbsp;</div>
-
-                            </td>
-
-                            <td>
-
-                                <input  placeholder="Fecha inicio de la visita" id="fechainiciovisita" name="fechainiciovisita" class="ufps-input "  type="date" required autofocus></input>
-                            </td>
-                        </tr>
-                        -->
+                       
                         <tr>
                             <td>
                                 <div style="text-align: left;" >Direccion :&nbsp; &nbsp; &nbsp;&nbsp;</div>

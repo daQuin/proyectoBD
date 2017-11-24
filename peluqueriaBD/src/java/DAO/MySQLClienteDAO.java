@@ -177,4 +177,33 @@ public class MySQLClienteDAO extends MySQLconexion implements INTERFAZ.IClienteD
 
     }
 
+    @Override
+    public ClienteDTO consultarClienteNC(String nombre, String correo) {
+    
+        ClienteDTO aux = null;
+        PreparedStatement stmt = null;
+        try {
+            stmt = super.getConn().prepareStatement("select * from cliente where  "
+                    + "nombre='" + nombre +"' AND correo='" + correo + "'");
+            ResultSet a = stmt.executeQuery();
+            while (a.next()) {
+                aux = new ClienteDTO();
+                aux.setId(a.getInt(1));
+                aux.setNombres(a.getString(2));
+                aux.setApellidos(a.getString(3));
+                aux.setDireccion(a.getString(4));
+                aux.setTelefono(a.getString(5));
+                aux.setCorreo(a.getString(6));
+            }
+
+            a.close();
+            return aux;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return aux;
+    
+    }
+
 }

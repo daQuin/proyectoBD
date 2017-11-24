@@ -14,16 +14,16 @@ public class CitaDTO {
     private String fecha;
     private String fechaCreacion;
     private ClienteDTO idCliente;
-    private PromocionDTO idPromocion;
+    private String servicio;
 
     public CitaDTO() {
     }
 
-    public CitaDTO(String fecha, String fechaCreacion, ClienteDTO idCliente, PromocionDTO idPromocion) {
+    public CitaDTO(String fecha, String fechaCreacion, ClienteDTO idCliente, String servicio) {
         this.fechaCreacion=fechaCreacion;
         this.fecha = fecha;
         this.idCliente = idCliente;
-        this.idPromocion = idPromocion;
+        this.servicio = servicio;
     }
 
     public String getFechaCreacion() {
@@ -59,13 +59,15 @@ public class CitaDTO {
         this.idCliente = idCliente;
     }
 
-    public PromocionDTO getIdPromocion() {
-        return idPromocion;
+    public String getServicio() {
+        return servicio;
     }
 
-    public void setIdPromocion(PromocionDTO idPromocion) {
-        this.idPromocion = idPromocion;
+    public void setServicio(String servicio) {
+        this.servicio = servicio;
     }
+
+   
     
     
 }
