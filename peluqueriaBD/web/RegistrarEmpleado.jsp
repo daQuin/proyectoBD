@@ -27,7 +27,7 @@
                 </div> 
 
 
-                <form align="center" class="login" name="formagregar" onSubmit="registrarConv();
+                <form align="center" class="login" name="formagregar" onSubmit="registrarEmpleado();
                         return false" >
 
 
@@ -189,6 +189,6 @@
 <script src="js/util.js"></script>
 <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 <script src="js/main.js"></script>
-<script src="js/ConvPorcesar.js"></script>
+<script src="js/empleadoProcesar.js"></script>
 </body>
 </html>

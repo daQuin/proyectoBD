@@ -26,8 +26,8 @@
                     </h1>
                 </div> 
 
-             
-                <form align="center" class="login" name="formagregar" onSubmit="registrarConv();
+
+                <form align="center" class="login" name="formagregar" onSubmit="registrarServicio();
                         return false" >
 
 
@@ -43,27 +43,11 @@
 
                             <td>
 
-                                <input  placeholder="nombre"  id="nombreservicio" name="nombreservicio" class="ufps-input "  type="text" required autofocus></input>
+                                <input  placeholder="nombre"  id="nombreservicio" name="nombre" class="ufps-input "  type="text" required autofocus></input>
 
                             </td>
                         </tr>
-
-
-                        <tr>
-                            <td>
-                                <div style="text-align: left;" >Fecha cierre :&nbsp; &nbsp; &nbsp;&nbsp;</div>
-
-                            </td>
-
-                            <td>
-
-                                <input  placeholder="Fecha cierre" id="fechafin" name="fechafin" class="ufps-input "  type="date" required autofocus></input>
-
-                            </td>
-                        </tr>
-
-
-
+                        <!--- Select que puede servir para otra cosa
                         <tr>
                             <td>
                                 <div style="text-align: left;" >Tipo:&nbsp; &nbsp; &nbsp;&nbsp;</div>
@@ -72,14 +56,17 @@
 
                             <td>
                                 <select id="tipo" name="tipo" class="ufps-input ">
-                                    <option value="Regional">Regional</option> 
-                                    <option value="Nacional">Nacional</option> 
-                                    <option value="Internacional">Internacional</option> 
-                                   
+                                    <option value="Corte">Corte</option>
+                                    <option value="Corte">Tintura</option>
+                                    <option value="Corte">Peinado</option>
+                                    <option value="Corte">Pedicura</option> 
+                                    <option value="Corte">Depilacion</option>
+                                    <option value="Corte">Manicura</option>
+
                                 </select>
                             </td>
-                        </tr>
-
+                        </tr>-->
+                        <!-- Fecha que sirve para otra plantilla
                         <tr>
                             <td>
                                 <div style="text-align: left;" >Fecha inicio de la visita :&nbsp; &nbsp; &nbsp;&nbsp;</div>
@@ -91,84 +78,30 @@
                                 <input  placeholder="Fecha inicio de la visita" id="fechainiciovisita" name="fechainiciovisita" class="ufps-input "  type="date" required autofocus></input>
                             </td>
                         </tr>
-
-
-                        <tr>
-                            <td>
-                                <div style="text-align: left;" >Fecha fin de la visita :&nbsp; &nbsp; &nbsp;&nbsp;</div>
-
-                            </td>
-
-                            <td>
-
-                                <input  placeholder="Fecha fin de la visita" id="fechafinvisita" name="fechafinvisita" class="ufps-input "  type="date" required autofocus></input>
-
-                            </td>
-                        </tr>
-
+                        -->
 
                         <tr>
                             <td> 
-                                <div style="text-align: left;">Inversion por estudiante : </div>  
+                                <div style="text-align: left;">Valor del servicio : </div>  
                             </td>
                             <td> 
 
-                                <input class="ufps-input" id="inversionestudiante" name="inversionestudiante" placeholder="Inversion por estudiante" type="number" id="fecha" required autofocus>
+                                <input class="ufps-input" id="valorservicio" name="valor" placeholder="Valor del servicio" type="number"required autofocus>
 
 
                             </td>
 
                         </tr>
 
-                    </table><br/>
-                    <h2 style=" font-size: 24px; color:#696969;">Informacion de la empresa</h2>
-                    <table align="center" border="0" class="table-responsive table-condensed table-hover">
                         <tr>
                             <td>
-                                <div style="text-align: left;" >Nombre :&nbsp; &nbsp; &nbsp;&nbsp;</div>
+                                <div style="text-align: left;" >Descripcion :&nbsp; &nbsp; &nbsp;&nbsp;</div>
 
                             </td>
 
                             <td>
 
-                                <input  placeholder="Nombre" id="nombreempresa" name="nombreempresa" class="ufps-input"  type="text" required autofocus></input>
-
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <div style="text-align: left;" >Pais: :&nbsp; &nbsp; &nbsp;&nbsp;</div>
-
-                            </td>
-
-                            <td>
-
-                                <input placeholder="Pais" id="pais" name="pais" class="ufps-input"  type="text" required autofocus></input>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div style="text-align: left;" >Ciudad :&nbsp; &nbsp; &nbsp;&nbsp;</div>
-
-                            </td>
-
-                            <td>
-
-                                <input  placeholder="Ciudad" id="ciudad" name="ciudad" class="ufps-input "  type="text" required autofocus></input>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div style="text-align: left;" >Direccion :&nbsp; &nbsp; &nbsp;&nbsp;</div>
-
-                            </td>
-
-                            <td>
-
-                                <input  placeholder="Direccion" id="direccion" name="direccion" class="ufps-input "  type="text" required autofocus></input>
+                                <input  placeholder="descripcion"  id="descripcionservicio" name="descripcion" class="ufps-input "  type="text" required autofocus></input>
 
                             </td>
                         </tr>
@@ -186,7 +119,7 @@
             <!-- Section -->
 
 
-            <!-- Section -->
+            <!-- Section xd-->
 
 
         </div>
@@ -205,6 +138,6 @@
 <script src="js/util.js"></script>
 <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 <script src="js/main.js"></script>
-<script src="js/ConvPorcesar.js"></script>
+<script src="js/ServicioProcesar.js"></script>
 </body>
 </html>
