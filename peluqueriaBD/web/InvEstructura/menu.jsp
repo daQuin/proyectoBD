@@ -51,6 +51,7 @@
                 <li>
                     <span class="opener">Clientes</span>
                     <ul>
+                         <li><a href="ClienteCrear.jsp">Crear</a></li>
                         <li><a href="ClienteConsultar.jsp">Consultar</a></li>                      
                     </ul>
                 </li>

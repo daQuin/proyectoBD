@@ -276,6 +276,12 @@ public class AdministradorDTO {
         return a.listarFactura();
     }
 
+    public boolean iniciarSesion(String nom, String pas) throws Exception {
+
+        IAdministradorDTO a = factor.obtenerConexionAdmin(false);
+        return a.iniciarSesion(nom, pas);
+    }
+
     
     
 }

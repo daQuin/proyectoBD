@@ -84,4 +84,43 @@ public class MySQLAdministradorDAO extends MySQLconexion implements IAdministrad
         return exito;
     }      
 
+    @Override
+    public boolean iniciarSesion(String nombre, String pass) throws Exception {
+    
+         AdministradorDTO dto = null;
+        try {
+            String selectStatement = "SELECT user,pass FROM administrador where user='" + nombre + "' AND pass='" + pass+"'";
+            PreparedStatement prepStmt = super.getConn().prepareStatement(selectStatement);
+            ResultSet rs = prepStmt.executeQuery();
+            while (rs.next()) {
+                dto = new AdministradorDTO();
+                dto.setUsuario(rs.getString(1));
+                dto.setContraseña(rs.getString(2));
+
+            }
+            
+            if(dto.getUsuario().equalsIgnoreCase(nombre) && dto.getContraseña().equalsIgnoreCase(pass)){
+                return true;
+            }
+            rs.close();
+        } catch (Exception e) {
+            try {
+                throw new Exception(e);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        } finally {
+            if (!keepConnection) {
+                if (super.getConn() != null) {
+                    try {
+                        super.getConn().close();
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
 }

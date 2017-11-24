@@ -67,3 +67,26 @@ function eliminarServicio(id) {
 
     });
 }
+
+function ActualizarServicio(id) {
+    nombre = $("#nombreservicio").val();
+    valor = $("#valorservicio").val(); 
+    descripcion = $("#textArea").val();
+    $.ajax({
+        url: 'servicioServlet',
+        type: 'POST',
+        data: {actualizarServicio: "true", id: id, nombre: nombre,valor: valor, descripcion: descripcion}
+    }).done(function (sub) {
+
+        if ((sub.indexOf('exito') >= 0)) {
+            $("#msj").html("<br> Registro Exitoso");
+            $("#msj").slideDown("slow").delay(1000).slideUp("fast");
+
+        } else {
+            $("#msj").html("<br> Error de registro");
+            $("#msj").slideDown("slow").delay(1000).slideUp("fast");
+        }
+        vaciar();
+
+    });
+}

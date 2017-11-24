@@ -92,7 +92,7 @@
                                 <td class="align-center"><%=s.getValor()%></td>
 
 
-                                <td><a type="button" class="btn btn-info btn-xs " data-toggle="modal" href="ConvActualizar.jsp?id=<%=s.getId()%>" title="Editar"><i class="fa fa-wrench"></i> </a>
+                                <td><a type="button" class="btn btn-info btn-xs " data-toggle="modal" href="ServicioActualizar.jsp?id=<%=s.getId()%>" title="Editar"><i class="fa fa-wrench"></i> </a>
                                     <i class="align-center"></i> 
 
                                     <span id="tooltipEliminar" data-toggle="tooltip" data-placement="top" title="Eliminar">

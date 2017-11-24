@@ -121,6 +121,7 @@ public class MySQLServicioDAO  extends MySQLconexion implements INTERFAZ.IServic
             ResultSet a = stmt.executeQuery();
             while (a.next()) {
                 aux = new ServicioDTO();
+                aux.setId(a.getInt(1));
 
                 aux.setNombre(a.getString(2));
                 aux.setValor(a.getDouble(3));

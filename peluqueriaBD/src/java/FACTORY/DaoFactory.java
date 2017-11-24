@@ -54,5 +54,10 @@ public class DaoFactory {
     public IFacturaDTO obtenerConexionFactura(boolean keepConnection) {
         return new MySQLFacturaDAO(keepConnection);
     }
+
+    public IAdministradorDTO obtenerConexionAdmin(boolean keepConnection) {
+
+         return new MySQLAdministradorDAO(keepConnection);
+    }
  
 }

@@ -94,6 +94,46 @@ public class servicioServlet extends HttpServlet {
         }
     }
 
+    public ServicioDTO buscarServicio(HttpServletRequest request, int id) throws Exception {
+        INegocioDTO n = (INegocioDTO) request.getSession().getAttribute("negocio");
+        if (n == null) {
+            n = new Negocio();
+        }
+        ServicioDTO c = n.consultarServicio(id);
+        return c;
+    }
+    
+    
+    protected void ActualizarServicio(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+     
+            int idServ = Integer.parseInt(request.getParameter("id"));
+            System.out.println("IDDDDD:  "+ idServ);   
+            String nombre = request.getParameter("nombre");
+            double valor = Double.parseDouble(request.getParameter("valor"));
+            String descripcion = request.getParameter("descripcion");
+          
+
+            INegocioDTO n = (INegocioDTO) request.getSession().getAttribute("negocio");
+            if (n == null) {
+                n = new Negocio();
+            }
+            
+            if (n.actualizarServicio(idServ, nombre, valor, descripcion)) {
+                //el servlet responde con este mensaje al ajax exito y fallo
+
+                response.getWriter().print("exito");
+            } else {
+                response.getWriter().print("fallo");
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(servicioServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -125,6 +165,10 @@ public class servicioServlet extends HttpServlet {
         }
         if (request.getParameter("eliminarServicio") != null) {
             eliminarServicio(request, response);
+        }
+        
+        if(request.getParameter("actualizarServicio")!=null){
+            ActualizarServicio(request, response);
         }
     }
 

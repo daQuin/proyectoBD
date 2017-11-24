@@ -13,8 +13,8 @@ function inscribirce() {
     }).done(function (sub) {
 
         if ((sub.indexOf('exito') >= 0)) {
-            $("#msj2").html("<br> Registro Exitoso");
-            $("#msj2").slideDown("slow").delay(1000).slideUp("fast");
+            $("#msj").html("<br> Registro Exitoso");
+            $("#msj").slideDown("slow").delay(1000).slideUp("fast");
             $("#cerrar").click();
         } else {
             $("#msj").html("<br> Registro Erroneo  " + idcon+".");
@@ -79,11 +79,11 @@ function vaciar() {
 
 
 function eliminarCliente(id) {
-     idconvocatoria= id;
+   
     $.ajax({
-        url: 'convServlet',
+        url: 'clienteServlet',
         type: 'POST',
-        data: {eliminarConv: "true", idconvocatoria: id}
+        data: {eliminarCliente: "true", idcliente: id}
     }).done(function (sub) {
 
        if ((sub.indexOf('exito') >= 0)) {

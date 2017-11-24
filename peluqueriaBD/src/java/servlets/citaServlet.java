@@ -5,10 +5,13 @@
  */
 package servlets;
 
+import DTO.CitaDTO;
+import DTO.ServicioDTO;
 import INTERFAZ.INegocioDTO;
 import NEGOCIO.Negocio;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -54,6 +57,19 @@ public class citaServlet extends HttpServlet {
         } catch (Exception ex) {
             Logger.getLogger(clienteServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    
+    public ArrayList listarCitas(HttpServletRequest request) throws Exception {
+
+        INegocioDTO n = (INegocioDTO) request.getSession().getAttribute("negocio");
+        if (n == null) {
+            n = new Negocio();
+        }
+        ArrayList<CitaDTO> as = new ArrayList<>();
+        as = n.listarCita();
+
+        return as;
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

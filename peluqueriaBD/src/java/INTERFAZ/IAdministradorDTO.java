@@ -14,4 +14,8 @@ import DTO.AdministradorDTO;
 public interface IAdministradorDTO {
      public AdministradorDTO consultarUsuario(String nick);
     public boolean cambiarContraseña(String usuario, String contraseñaNueva)throws Exception;
+
+public boolean iniciarSesion(String nombre, String correo)throws Exception;
+     
 }
+

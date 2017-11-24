@@ -65,14 +65,14 @@ public class clienteServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
 
-            int idconvocatoria = Integer.parseInt(request.getParameter("idconvocatoria"));
-            System.out.println("entro a eliminarrrr  " + idconvocatoria);
+            int idCliente = Integer.parseInt(request.getParameter("idcliente"));
+            System.out.println("ELIMINAR : " + idCliente);
             INegocioDTO n = (INegocioDTO) request.getSession().getAttribute("negocio");
             if (n == null) {
                 n = new Negocio();
             }
 
-            if (n.EliminarCliente(idconvocatoria)) {
+            if (n.EliminarCliente(idCliente)) {
                 //el servlet responde con este mensaje al ajax exito y fallo
                 response.getWriter().print("exito");
             } else {
@@ -168,6 +168,9 @@ public class clienteServlet extends HttpServlet {
             throws ServletException, IOException {
         if (request.getParameter("inscribirce") != null) {
             registrarCliente(request, response);
+        }
+        if (request.getParameter("eliminarCliente") != null) {
+            eliminarCliente(request, response);
         }
     }
 

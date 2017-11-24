@@ -498,11 +498,13 @@ public class Negocio implements INegocioDTO {
     //------------------Metodos de inicio de sesion------------------------------------
     @Override
     public boolean iniciarSesion(String nom, String pas) {
-
-        if (nom.equalsIgnoreCase("daniel") && pas.equalsIgnoreCase("pass")) {
-            return true;
+boolean rta= false;
+        try {
+            return rta = admin.iniciarSesion(nom, pas);
+           
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-
         return false;
     }
 
