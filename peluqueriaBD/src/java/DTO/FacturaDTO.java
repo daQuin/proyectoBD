@@ -15,18 +15,26 @@ public class FacturaDTO {
     private String tipoPago;
     private String fecha;
     private ClienteDTO idCliente;
+    private String producto;
+    private String servicio;
+    private int cantidad;
 
     public FacturaDTO() {
     }
 
-    public FacturaDTO( String tipoPago, String fecha, ClienteDTO idCliente, double totalPagar) {
-       
+    public FacturaDTO(double totalPagar, String tipoPago, String fecha, ClienteDTO idCliente, String producto, String servicio, int cantidad) {
         this.totalPagar = totalPagar;
         this.tipoPago = tipoPago;
         this.fecha = fecha;
         this.idCliente = idCliente;
+        this.producto = producto;
+        this.servicio = servicio;
+        this.cantidad = cantidad;
     }
 
+  
+
+  
     public int getId() {
         return id;
     }
@@ -65,6 +73,30 @@ public class FacturaDTO {
 
     public void setIdCliente(ClienteDTO idCliente) {
         this.idCliente = idCliente;
+    }
+
+    public String getProducto() {
+        return producto;
+    }
+
+    public void setProducto(String producto) {
+        this.producto = producto;
+    }
+
+    public String getServicio() {
+        return servicio;
+    }
+
+    public void setServicio(String servicio) {
+        this.servicio = servicio;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
     }
     
     

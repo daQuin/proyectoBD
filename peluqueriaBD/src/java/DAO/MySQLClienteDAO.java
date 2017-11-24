@@ -15,11 +15,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class MySQLClienteDAO extends MySQLconexion implements INTERFAZ.IClienteDTO {
-
+    
     public MySQLClienteDAO(boolean keepConnection) {
         super(keepConnection);
     }
-
+    
     @Override
     public boolean registrarCliente(ClienteDTO a) {
         boolean exito = false;
@@ -34,7 +34,7 @@ public class MySQLClienteDAO extends MySQLconexion implements INTERFAZ.IClienteD
             stmt.setString(3, a.getDireccion());
             stmt.setString(4, a.getTelefono());
             stmt.setString(5, a.getCorreo());
-
+            
             int aux = stmt.executeUpdate();
             if (aux > 0) {
                 exito = true;
@@ -56,7 +56,7 @@ public class MySQLClienteDAO extends MySQLconexion implements INTERFAZ.IClienteD
         }
         return exito;
     }
-
+    
     @Override
     public boolean eliminarCliente(int id) {
         PreparedStatement stmt = null;
@@ -71,11 +71,11 @@ public class MySQLClienteDAO extends MySQLconexion implements INTERFAZ.IClienteD
                     stmt = super.getConn().prepareStatement("delete from cliente where id='" + id + "'");
                     System.out.println("Se esta Eliminando un Cliente");
                     stmt.executeUpdate();
-
+                    
                     exito = true;
                 }
             }
-
+            
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -91,9 +91,9 @@ public class MySQLClienteDAO extends MySQLconexion implements INTERFAZ.IClienteD
             }
         }
         return exito;
-
+        
     }
-
+    
     @Override
     public boolean actualizarCliente(int id, String nombres, String apellidos, String direccion, String telefono, String correo) {
         boolean exito = false;
@@ -102,13 +102,13 @@ public class MySQLClienteDAO extends MySQLconexion implements INTERFAZ.IClienteD
             smtm = super.getConn().prepareStatement("update cliente set nombre=?,apellido=?,"
                     + "direccion=?,telefono=?,correo=? where id='" + id + "'");
             System.out.println("Se encuentra actualizando el cliente con id = " + id);
-
+            
             smtm.setString(1, nombres);
             smtm.setString(2, apellidos);
             smtm.setString(3, direccion);
             smtm.setString(4, telefono);
             smtm.setString(5, correo);
-
+            
             int total = smtm.executeUpdate();
             if (total > 0) {
                 exito = true;
@@ -118,7 +118,7 @@ public class MySQLClienteDAO extends MySQLconexion implements INTERFAZ.IClienteD
         }
         return exito;
     }
-
+    
     @Override
     public ClienteDTO consultarCliente(int codigoUfps) {
         ClienteDTO aux = null;
@@ -129,34 +129,34 @@ public class MySQLClienteDAO extends MySQLconexion implements INTERFAZ.IClienteD
             ResultSet a = stmt.executeQuery();
             while (a.next()) {
                 aux = new ClienteDTO();
-
+                aux.setId(a.getInt(1));
                 aux.setNombres(a.getString(2));
                 aux.setApellidos(a.getString(3));
                 aux.setDireccion(a.getString(4));
                 aux.setTelefono(a.getString(5));
                 aux.setCorreo(a.getString(6));
             }
-
+            
             a.close();
             return aux;
-
+            
         } catch (Exception e) {
             e.printStackTrace();
         }
         return aux;
     }
-
+    
     @Override
     public ArrayList<ClienteDTO> listarClienteDTO() {
-
+        
         ArrayList<ClienteDTO> a = null;
         PreparedStatement stmt = null;
         PreparedStatement auxi = null;
-
+        
         try {
             a = new ArrayList<ClienteDTO>();
             stmt = super.getConn().prepareStatement("select * from cliente");
-
+            
             ResultSet aux = stmt.executeQuery();
             while (aux.next()) {
                 ClienteDTO vis = new ClienteDTO();
@@ -169,22 +169,22 @@ public class MySQLClienteDAO extends MySQLconexion implements INTERFAZ.IClienteD
                 a.add(vis);
             }
             aux.close();
-
+            
         } catch (Exception e) {
             e.printStackTrace();
         }
         return a;
-
+        
     }
-
+    
     @Override
     public ClienteDTO consultarClienteNC(String nombre, String correo) {
-    
+        
         ClienteDTO aux = null;
         PreparedStatement stmt = null;
         try {
             stmt = super.getConn().prepareStatement("select * from cliente where  "
-                    + "nombre='" + nombre +"' AND correo='" + correo + "'");
+                    + "nombre='" + nombre + "' AND correo='" + correo + "'");
             ResultSet a = stmt.executeQuery();
             while (a.next()) {
                 aux = new ClienteDTO();
@@ -195,15 +195,15 @@ public class MySQLClienteDAO extends MySQLconexion implements INTERFAZ.IClienteD
                 aux.setTelefono(a.getString(5));
                 aux.setCorreo(a.getString(6));
             }
-
+            
             a.close();
             return aux;
-
+            
         } catch (Exception e) {
             e.printStackTrace();
         }
         return aux;
-    
+        
     }
-
+    
 }

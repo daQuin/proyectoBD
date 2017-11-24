@@ -9,6 +9,7 @@ import DAO.MySQLAdministradorDAO;
 import DAO.MySQLCitaDAO;
 import DAO.MySQLClienteDAO;
 import DAO.MySQLEmpleadoDAO;
+import DAO.MySQLFacturaDAO;
 import DAO.MySQLProductoDAO;
 import DAO.MySQLPromocionDAO;
 import DAO.MySQLServicioDAO;
@@ -17,6 +18,7 @@ import INTERFAZ.IAdministradorDTO;
 import INTERFAZ.ICitaDTO;
 import INTERFAZ.IClienteDTO;
 import INTERFAZ.IEmpleadoDTO;
+import INTERFAZ.IFacturaDTO;
 import INTERFAZ.IProductoDTO;
 import INTERFAZ.IPromocionDTO;
 import INTERFAZ.IServicioDTO;
@@ -48,6 +50,9 @@ public class DaoFactory {
     }
     public ICitaDTO obtenerConexionCita(boolean keepConnection) {
         return new MySQLCitaDAO(keepConnection);
+    }
+    public IFacturaDTO obtenerConexionFactura(boolean keepConnection) {
+        return new MySQLFacturaDAO(keepConnection);
     }
  
 }

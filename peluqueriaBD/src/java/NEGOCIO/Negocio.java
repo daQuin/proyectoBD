@@ -9,6 +9,7 @@ import DTO.AdministradorDTO;
 import DTO.CitaDTO;
 import DTO.ClienteDTO;
 import DTO.EmpleadoDTO;
+import DTO.FacturaDTO;
 import DTO.ProductoDTO;
 import DTO.PromocionDTO;
 import DTO.ServicioDTO;
@@ -508,6 +509,48 @@ public class Negocio implements INegocioDTO {
     @Override
     public void cerrarSesion() {
 
+    }
+
+    @Override
+    public boolean registrarFactura(String tipoPago,int producto, int servicio, int idCliente, int cantidad) {
+        System.out.println("LLEGOOOOOOOOOO");
+          try {
+            boolean rta = admin.registrarFactura(tipoPago, producto, servicio, idCliente, cantidad);
+            if (rta) {
+                return rta;
+            } else {
+            }
+
+        } catch (Exception e) {
+        }
+        return false;
+    }
+
+    @Override
+    public boolean EliminarFactura(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean actualizarFactura(int id, String tipoPago, String fecha, double totalPagar, int idCliente) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public FacturaDTO consultarFactura(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public ArrayList<FacturaDTO> listarFactura() {
+
+        ArrayList<FacturaDTO> a = null;
+        try {
+            a = admin.listarFactura();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return a;
     }
 
 }

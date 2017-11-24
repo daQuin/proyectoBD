@@ -43,6 +43,7 @@
                 <li>
                     <span class="opener">Factura</span>
                     <ul>
+                        <li><a href="FacturaCrear.jsp">Crear</a></li>
                         <li><a href="FacturaConsultar.jsp">Consultar</a></li>                      
                     </ul>
                 </li>

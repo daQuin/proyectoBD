@@ -7,6 +7,8 @@ package INTERFAZ;
 
 
 import DTO.FacturaDTO;
+import DTO.ProductoDTO;
+import java.util.ArrayList;
 
 /**
  *
@@ -17,4 +19,5 @@ public interface IFacturaDTO {
   public boolean eliminarFactura(int id);
   public boolean actualizarFactura(int id,String tipoPago, String fecha, int idCliente, double totalPagar);
   public FacturaDTO consultarFactura(int id);   
+  public ArrayList<FacturaDTO> listarFactura();
 }

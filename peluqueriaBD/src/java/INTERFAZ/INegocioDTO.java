@@ -8,6 +8,7 @@ package INTERFAZ;
 import DTO.CitaDTO;
 import DTO.ClienteDTO;
 import DTO.EmpleadoDTO;
+import DTO.FacturaDTO;
 import DTO.ProductoDTO;
 import DTO.PromocionDTO;
 import DTO.ServicioDTO;
@@ -62,4 +63,12 @@ public interface INegocioDTO {
      public boolean iniciarSesion(String nom,  String pas);
      
     public void cerrarSesion();
+    
+    
+     public boolean registrarFactura(String tipoPago,int producto, int servicio, int idCliente, int cantidad);
+    public boolean EliminarFactura(int id);
+    public boolean actualizarFactura(int id, String tipoPago,String fecha,double totalPagar, int idCliente);
+    public FacturaDTO consultarFactura(int id);
+    public ArrayList<FacturaDTO> listarFactura();
+    
 }

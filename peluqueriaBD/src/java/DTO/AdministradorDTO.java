@@ -11,6 +11,7 @@ import INTERFAZ.ICitaDTO;
 import java.util.ArrayList;
 import INTERFAZ.IClienteDTO;
 import INTERFAZ.IEmpleadoDTO;
+import INTERFAZ.IFacturaDTO;
 import INTERFAZ.IProductoDTO;
 import INTERFAZ.IPromocionDTO;
 import INTERFAZ.IServicioDTO;
@@ -258,4 +259,23 @@ public class AdministradorDTO {
         ICitaDTO a = factor.obtenerConexionCita(false);
         return a.eliminarCita(id);
     }
+    
+    
+     public boolean registrarFactura(String tipoPago,int producto, int servicio, int idCliente, int cantidad) {
+         double totalPagar =0;
+         totalPagar = cantidad*consultarProducto(producto).getValor();
+        IFacturaDTO a = factor.obtenerConexionFactura(false);
+        FacturaDTO p = new FacturaDTO(totalPagar, tipoPago, ObtenerFechaActual(), consultarCliente(idCliente),
+                consultarProducto(producto).getNombre(), consultarServicio(servicio).getNombre(), cantidad);
+        return a.generarFactura(p);
+    }
+
+    public ArrayList<FacturaDTO> listarFactura() {
+    
+        IFacturaDTO a = factor.obtenerConexionFactura(false);
+        return a.listarFactura();
+    }
+
+    
+    
 }
