@@ -23,13 +23,13 @@ and open the template in the editor.
                 </div>
                 <ul class="nav navbar-nav">
                     <!--Boton Inicio -->
-                    <li class="active"><a href="index.html">Inicio</a></li>
+                    <li class="active"><a href="index.jsp">Inicio</a></li>
                     <!--Boton Productos -->
                     <li><a href="productos.jsp">Productos</a></li>
                     <!--Boton Servicios -->
                     <li><a href="servicios.jsp">Servicios</a></li>
                     <!--Boton Citas -->
-                    <li><a href="cita.html">Citas</a></li>
+                    <li><a href="citas.jsp">Citas</a></li>
                 </ul>
                 <!--Barra de Registro y Ingreso -->
                 <ul class="nav navbar-nav navbar-right">

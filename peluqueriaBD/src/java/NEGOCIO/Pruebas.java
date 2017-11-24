@@ -27,11 +27,12 @@ public class Pruebas {
          // a.registrarServicio("Corte de cabello hombre", 10000,"corte de todo tipo para caballeros");
         // a.registrarServicio("Tinturado", 30000, "Tinturado dama y caballero");
        // a.actualizarServicio(2,"Tinturado", 30000, "Tinturado damas caballeros y niños");
+       a.registrarServicio("loreal Paris", 1000, "Tinte para cabello rojo");
        
 //        System.out.println(a.consultarCliente(1));
 //        System.out.println("cualquier cosa");
 
-a.registrarCita("22/07/2017", "22/08/2017", "Monica", "d@gamil.com", "Manicure");
+//a.registrarCita("22/07/2017", "22/08/2017", "Monica", "d@gamil.com", "Manicure");
         System.out.println("ss");
     }
     

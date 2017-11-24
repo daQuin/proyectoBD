@@ -114,7 +114,7 @@
                                                 <div class="modal-body" style="background: #f7f7f7; height:10%; padding-bottom:  0px;">
                                                     <button type="button" class="close btn-xs" style="width: 45px; height: 30px; display: block; float: right; " data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                     <% String cod = "" + e.getId();%>
-                                                    <h4 class="modal-title align-center"  id="myModalLabel"><b>¿Estas seguro de eliminar la Convocatoria con ID <%=cod%>?</b></h4>
+                                                    <h4 class="modal-title align-center"  id="myModalLabel"><b>¿Estas seguro de eliminar el Empleado con ID <%=cod%>?</b></h4>
 
                                                     <div class="row" style="height: 20px"></div>
                                                     <div class="text-center">
