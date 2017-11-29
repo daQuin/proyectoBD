@@ -81,7 +81,7 @@
                             </td>
                             <td> 
                                 <div>
-                                    <textarea  name="textArea" id="textArea"  value="<%=s.getDescripcion()%>" placeholder="<%=s.getDescripcion()%>"></textarea>
+                                    < <textarea  name="textArea" id="textArea"><%=s.getDescripcion()%> </textarea>
                                 </div>
 
                             </td>
