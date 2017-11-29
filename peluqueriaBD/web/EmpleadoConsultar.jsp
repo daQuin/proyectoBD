@@ -37,7 +37,7 @@
             <div class="content" style=" background-color: #fcfcfc; padding: 5em;">
 
                 <div style="text-align: center;">
-                        <h1 style=" font-size: 24px; color:#696969;">CONSULTAR PRODUCTOS<br /><br />
+                        <h1 style=" font-size: 24px; color:#696969;">CONSULTAR EMPLEADOS<br /><br />
                     </h1>
                 </div> 
 
