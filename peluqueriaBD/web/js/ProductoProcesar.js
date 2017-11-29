@@ -33,48 +33,29 @@ function vaciar() {
 
 }
 
-
-
-function consultarConv() {
-
-    $("#consulta").slideDown("slow");
-
-
-    id = $("#id").val();
-
+function ActualizarProducto(id) {
+    nombre = $("#nombreproducto").val();
+    valor = $("#valorproducto").val(); 
+    descripcion = $("#textArea").val();
+    cantidad=$("#cantidadproducto").val();
     $.ajax({
-        url: 'convServlet',
+        url: 'productoServlet',
         type: 'POST',
-        data: {consultarConv: "true", id: id},
-        dataType: 'JSON'
+        data: {actualizarProducto: "true", id: id, nombre: nombre,valor: valor, descripcion: descripcion,cantidad:cantidad}
     }).done(function (sub) {
 
+        if ((sub.indexOf('exito') >= 0)) {
+            $("#msj").html("<br> Registro Exitoso");
+            $("#msj").slideDown("slow").delay(1000).slideUp("fast");
 
-        if ((sub.indexOf('fallo') >= 0)) {
-
-            $("#fallo").html("Error en la conversión.");
         } else {
-
-
-            for (i = 0; i < sub.length; i++) {
-                $('#tablaresultado').append(
-                        "<tr style='text-align: center'>"
-
-                        + "<td>" + sub[i]['Id'] + "</td>"
-                        + "<td>" + sub[i]['Nombre'] + "</td>"
-                        + "<td>" + sub[i]['Apellido'] + "</td>"
-                        + "<td>" + sub[i]['Correo'] + "</td>"
-
-                        + "<td><input type='checkbox' name='checkbox' id='checkbox" + sub[i]['Id'] + "'><label for='checkbox" + sub[i]['Id'] + "'></label></td>"
-                        + "</tr>");
-            }
+            $("#msj").html("<br> Error de registro");
+            $("#msj").slideDown("slow").delay(1000).slideUp("fast");
         }
+        vaciar();
 
     });
-
 }
-
-
 
 
 function eliminarProducto(id) {

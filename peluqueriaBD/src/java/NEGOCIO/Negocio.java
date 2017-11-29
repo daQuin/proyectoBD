@@ -125,7 +125,7 @@ public class Negocio implements INegocioDTO {
     }
 
     @Override
-    public boolean actualizarProducto(int id, String nombre, String descripcion, int cantidad, int valor) {
+    public boolean actualizarProducto(int id, String nombre, String descripcion, int cantidad, double valor) {
         try {
             boolean rta = admin.actualizarProducto(id, nombre, descripcion, cantidad, valor);
             if (rta) {

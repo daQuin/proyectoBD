@@ -31,7 +31,7 @@ public interface INegocioDTO {
 
     public boolean registrarProducto(String nombre, String descripcion, int cantidad, int valor);
     public boolean EliminarProducto(int id);
-    public boolean actualizarProducto(int id,String nombre, String descripcion, int cantidad, int valor);
+    public boolean actualizarProducto(int id,String nombre, String descripcion, int cantidad, double valor);
     public ProductoDTO consultarProducto(int id);
     public ArrayList<ProductoDTO> listarProducto();
     

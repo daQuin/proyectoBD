@@ -95,6 +95,47 @@ public class productoServlet extends HttpServlet {
             Logger.getLogger(productoServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public ProductoDTO buscarProducto(HttpServletRequest request, int id) throws Exception {
+        INegocioDTO n = (INegocioDTO) request.getSession().getAttribute("negocio");
+        if (n == null) {
+            n = new Negocio();
+        }
+        ProductoDTO c = n.consultarProducto(id);
+        return c;
+    }
+    
+     protected void ActualizarProducto(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+     
+            int idProd = Integer.parseInt(request.getParameter("id")); 
+            System.out.println("id producto:" +idProd);
+            String nombre = request.getParameter("nombre");
+            double valor = Double.parseDouble(request.getParameter("valor"));
+            int cantidad=Integer.parseInt(request.getParameter("cantidad"));
+            System.out.println("can: "+cantidad);
+            String descripcion = request.getParameter("descripcion");
+          
+
+            INegocioDTO n = (INegocioDTO) request.getSession().getAttribute("negocio");
+            if (n == null) {
+                n = new Negocio();
+            }
+            
+            if (n.actualizarProducto(idProd, nombre, descripcion, cantidad, valor)) {
+                //el servlet responde con este mensaje al ajax exito y fallo
+
+                response.getWriter().print("exito");
+            } else {
+                response.getWriter().print("fallo");
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(servicioServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+   
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -128,6 +169,8 @@ public class productoServlet extends HttpServlet {
         } else if (request.getParameter("eliminarProd") != null) {
             System.out.println("enntro2 a eliminar ");
             eliminarProducto(request, response);
+        } if (request.getParameter("actualizarProducto") != null) {
+            ActualizarProducto(request, response);
         } 
     }
 

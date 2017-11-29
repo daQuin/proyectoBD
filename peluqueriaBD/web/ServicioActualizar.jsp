@@ -1,10 +1,7 @@
 
 <%@page import="DTO.ServicioDTO"%>
 <%@page import="servlets.servicioServlet"%>
-<%  if (session.getAttribute("sesion") == null) {
-        response.sendRedirect("index.jsp");
-    }
-%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:include page="InvEstructura/adminheader.jsp"/>
 

@@ -119,7 +119,7 @@ public class AdministradorDTO {
         return a.registrarProducto(p);
     }
 
-    public boolean actualizarProducto(int id, String nombre, String descripcion, int cantidad, int valor) {
+    public boolean actualizarProducto(int id, String nombre, String descripcion, int cantidad, double valor) {
         IProductoDTO a = factor.obtenerConexionProducto(false);
         return a.actualizarProducto(id, nombre, descripcion, cantidad, valor);
     }
