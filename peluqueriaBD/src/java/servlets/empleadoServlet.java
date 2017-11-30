@@ -98,6 +98,15 @@ public class empleadoServlet extends HttpServlet {
             Logger.getLogger(empleadoServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+        public EmpleadoDTO buscarEmpleado(HttpServletRequest request, int id) throws Exception {
+        INegocioDTO n = (INegocioDTO) request.getSession().getAttribute("negocio");
+        if (n == null) {
+            n = new Negocio();
+        }
+        EmpleadoDTO c = n.consultarEmpleado(id);
+        return c;
+    }
 
             // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
             /**

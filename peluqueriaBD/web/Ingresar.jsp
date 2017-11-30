@@ -23,7 +23,7 @@ and open the template in the editor.
                 </div>
                 <ul class="nav navbar-nav">
                     <!--Boton Inicio -->
-                    <li class="active"><a href="index.jsp">Inicio</a></li>
+                    <li><a href="index.jsp">Inicio</a></li>
                     <!--Boton Productos -->
                     <li><a href="productos.jsp">Productos</a></li>
                     <!--Boton Servicios -->
@@ -36,7 +36,7 @@ and open the template in the editor.
                     <!--Boton Registro -->
                     <li><a href="registro.jsp"><span class="glyphicon glyphicon-user"></span> Registrate</a></li>
                     <!--Boton Ingreso -->
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Ingresate</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in" class="active"></span> Ingresate</a></li>
                 </ul>
             </div>
         </nav>
