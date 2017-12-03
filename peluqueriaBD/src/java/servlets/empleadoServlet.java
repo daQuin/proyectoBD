@@ -108,6 +108,38 @@ public class empleadoServlet extends HttpServlet {
         return c;
     }
 
+             protected void ActualizarEmpleado(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+     
+            int idEmpleado = Integer.parseInt(request.getParameter("id")); 
+            System.out.println("id empleado:" +idEmpleado);
+            String nombre = request.getParameter("nombre");
+            String apellido = request.getParameter("apellido");
+            String cedula = request.getParameter("cedula");
+            String direccion = request.getParameter("direccion");
+            String telefono = request.getParameter("telefono");
+            String correo = request.getParameter("correo");
+            String fechaIngreso = request.getParameter("fecha");
+          
+
+            INegocioDTO n = (INegocioDTO) request.getSession().getAttribute("negocio");
+            if (n == null) {
+                n = new Negocio();
+            }
+            
+            if (n.actualizarEmpleado(idEmpleado, nombre, apellido, cedula, direccion, telefono, correo, fechaIngreso)) {
+                //el servlet responde con este mensaje al ajax exito y fallo
+
+                response.getWriter().print("exito");
+            } else {
+                response.getWriter().print("fallo");
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(servicioServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
             // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
             /**
              * Handles the HTTP <code>GET</code> method.

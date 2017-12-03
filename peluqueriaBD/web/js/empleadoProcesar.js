@@ -41,6 +41,32 @@ function vaciar() {
     $("#fechaingresoempleado").val("");
 }
 
+function ActualizarEmpleado(id) {
+    nombre = $("#nombreempleado").val();
+    apellido = $("#apellidoempleado").val();
+    cedula = $("#cedulaempleado").val();
+    direccion = $("#direccionempleado").val();
+    telefono = $("#telefonoempleado").val();
+    correo = $("#correoempleado").val();
+    fecha = $("#fechaingresoempleado").val();
+    $.ajax({
+        url: 'empleadoServlet',
+        type: 'POST',
+        data: {actualizarEmpleado: "true", nombre: nombre, apellido: apellido, cedula: cedula, direccion: direccion, telefono: telefono, correo: correo, fecha: fecha}
+    }).done(function (sub) {
+
+        if ((sub.indexOf('exito') >= 0)) {
+            $("#msj").html("<br> Registro Exitoso");
+            $("#msj").slideDown("slow").delay(1000).slideUp("fast");
+
+        } else {
+            $("#msj").html("<br> Error de registro");
+            $("#msj").slideDown("slow").delay(1000).slideUp("fast");
+        }
+        vaciar();
+
+    });
+}
 
 function eliminarEmpleado(id) {
    
