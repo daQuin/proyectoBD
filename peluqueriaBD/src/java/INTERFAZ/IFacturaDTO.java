@@ -20,4 +20,5 @@ public interface IFacturaDTO {
   public boolean actualizarFactura(int id,String tipoPago, String fecha, int idCliente, double totalPagar);
   public FacturaDTO consultarFactura(int id);   
   public ArrayList<FacturaDTO> listarFactura();
+  public ArrayList<FacturaDTO> realizarConsultas(double valorCompra, String nombre, String mes);
 }

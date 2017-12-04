@@ -187,5 +187,38 @@ public class MySQLFacturaDAO extends MySQLconexion implements IFacturaDTO{
 
         
     }
+    public ArrayList<FacturaDTO> realizarConsultas(double valorCompra, String inicialNombre, String mes){
+       
+        ArrayList<FacturaDTO> a = null;
+        PreparedStatement stmt = null;
+        PreparedStatement auxi = null;
+
+        try {
+            a = new ArrayList<FacturaDTO>();
+            stmt = super.getConn().prepareStatement("select * from factura ");
+
+            ResultSet aux = stmt.executeQuery();
+            MySQLClienteDAO c = new MySQLClienteDAO(keepConnection);
+            while (aux.next()) {
+                FacturaDTO vis = new FacturaDTO();
+                vis.setId(aux.getInt(1));
+                vis.setTipoPago(aux.getString(2));
+                vis.setFecha(aux.getString(3));
+                vis.setTotalPagar(aux.getInt(4));
+                vis.setIdCliente(c.consultarCliente(aux.getInt(5)));
+                vis.setProducto(aux.getString(6));
+                vis.setServicio(aux.getString(7));
+                vis.setCantidad(aux.getInt(8));
+                a.add(vis);
+            }
+            aux.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return a;
+
+        
+    }
     
 }

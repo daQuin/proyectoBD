@@ -65,10 +65,12 @@ public interface INegocioDTO {
     public void cerrarSesion();
     
     
-     public boolean registrarFactura(String tipoPago,int producto, int servicio, int idCliente, int cantidad);
+    public boolean registrarFactura(String tipoPago,int producto, int servicio, int idCliente, int cantidad);
     public boolean EliminarFactura(int id);
     public boolean actualizarFactura(int id, String tipoPago,String fecha,double totalPagar, int idCliente);
     public FacturaDTO consultarFactura(int id);
     public ArrayList<FacturaDTO> listarFactura();
+    
+    public ArrayList<FacturaDTO> realizarConsulta(double valorCompra, String inicialNombre, String Mes); 
     
 }

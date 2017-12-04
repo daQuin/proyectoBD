@@ -275,6 +275,12 @@ public class AdministradorDTO {
         IFacturaDTO a = factor.obtenerConexionFactura(false);
         return a.listarFactura();
     }
+    
+     public ArrayList<FacturaDTO> realizarConsulta(double valorCompra, String nombre, String mes) {
+    
+        IFacturaDTO a = factor.obtenerConexionFactura(false);
+        return a.realizarConsultas(valorCompra,nombre,mes);
+    }
 
     public boolean iniciarSesion(String nom, String pas) throws Exception {
 

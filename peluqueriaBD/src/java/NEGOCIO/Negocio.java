@@ -67,7 +67,7 @@ public class Negocio implements INegocioDTO {
 
     @Override
     public boolean actualizarCliente(int id, String nombres, String apellidos, String direccion, String telefono, String correo) {
-            try {
+        try {
             boolean rta = admin.actualizarCliente(id, nombres, apellidos, direccion, telefono, correo);
             if (rta) {
                 System.out.println("Empleado Registrado");
@@ -79,7 +79,7 @@ public class Negocio implements INegocioDTO {
         } catch (Exception e) {
         }
         return false;
-        
+
     }
 
     @Override
@@ -187,10 +187,10 @@ public class Negocio implements INegocioDTO {
     //---------------Metodos del servicio------------------------------------------
 
     @Override
-    public boolean registrarServicio(String nombre, double valor,String descripcion) {
+    public boolean registrarServicio(String nombre, double valor, String descripcion) {
 
         try {
-            boolean rta = admin.registrarServicio(nombre, valor,descripcion);
+            boolean rta = admin.registrarServicio(nombre, valor, descripcion);
             if (rta) {
                 System.out.println("Servicio Registrado");
                 return rta;
@@ -205,9 +205,9 @@ public class Negocio implements INegocioDTO {
     }
 
     @Override
-    public boolean actualizarServicio(int id, String nombre, double valor,String descripcion) {
+    public boolean actualizarServicio(int id, String nombre, double valor, String descripcion) {
         try {
-            boolean rta = admin.actualizarServicio(id, nombre, valor,descripcion);
+            boolean rta = admin.actualizarServicio(id, nombre, valor, descripcion);
             if (rta) {
                 System.out.println("producto Registrado");
                 return rta;
@@ -267,7 +267,7 @@ public class Negocio implements INegocioDTO {
 
     //------------------Metodos del Empleado------------------------------------
     @Override
-   public boolean registrarEmpleado(String nombre, String apellido, String cedula, String direccion, String telefono, String correo,String fechaIngreso) {
+    public boolean registrarEmpleado(String nombre, String apellido, String cedula, String direccion, String telefono, String correo, String fechaIngreso) {
 
         try {
             boolean rta = admin.registrarEmpleado(nombre, apellido, cedula, direccion, telefono, correo, fechaIngreso);
@@ -286,7 +286,7 @@ public class Negocio implements INegocioDTO {
 
         return true;
     }
-   
+
     @Override
     public boolean EliminarEmpleado(int id) {
 
@@ -307,9 +307,9 @@ public class Negocio implements INegocioDTO {
     }
 
     @Override
-    public boolean actualizarEmpleado(int id, String nombres,String apellidos,String cedula,String direccion, String telefono,String correo,String fechaIngreso) {
-     
-    try {
+    public boolean actualizarEmpleado(int id, String nombres, String apellidos, String cedula, String direccion, String telefono, String correo, String fechaIngreso) {
+
+        try {
             boolean rta = admin.actualizarEmpleado(id, nombres, apellidos, cedula, direccion, telefono, correo, fechaIngreso);
             if (rta) {
                 System.out.println("Empleado Registrado");
@@ -345,10 +345,8 @@ public class Negocio implements INegocioDTO {
         }
         return a;
     }
-   
+
     //-------------------metodos de promocion-----------------------------------------
-   
-    
     @Override
     public boolean registrarPromocion(String nombre, String FechaInicio, String FechaFin) {
 
@@ -368,7 +366,7 @@ public class Negocio implements INegocioDTO {
     }
 
     @Override
-    public boolean actualizarPromocion(int id,String nombre, String FechaInicio, String FechaFin) {
+    public boolean actualizarPromocion(int id, String nombre, String FechaInicio, String FechaFin) {
         try {
             boolean rta = admin.actualizarPromocion(id, nombre, FechaInicio, FechaFin);
             if (rta) {
@@ -395,8 +393,6 @@ public class Negocio implements INegocioDTO {
         return null;
     }
 
- 
-
     @Override
     public boolean EliminarPromocion(int id) {
 
@@ -416,10 +412,10 @@ public class Negocio implements INegocioDTO {
         return false;
 
     }
-    
+
     //-------------Metodos de citas------------------------------------------------
-        @Override
-    public boolean registrarCita(String fecha,String fechaCreacion, String nombreCliente, String correo,String servicio) {
+    @Override
+    public boolean registrarCita(String fecha, String fechaCreacion, String nombreCliente, String correo, String servicio) {
 
         try {
             boolean rta = admin.registrarCita(fecha, fechaCreacion, nombreCliente, correo, servicio);
@@ -435,7 +431,7 @@ public class Negocio implements INegocioDTO {
     }
 
     @Override
-    public boolean actualizarCita(int id, String fecha,String fechaCreacion, int idCliente,String servicio) {
+    public boolean actualizarCita(int id, String fecha, String fechaCreacion, int idCliente, String servicio) {
         try {
             boolean rta = admin.actualizarCita(id, fecha, fechaCreacion, idCliente, servicio);
             if (rta) {
@@ -460,8 +456,6 @@ public class Negocio implements INegocioDTO {
         return null;
     }
 
- 
-
     @Override
     public boolean EliminarCita(int id) {
 
@@ -481,8 +475,8 @@ public class Negocio implements INegocioDTO {
         return false;
 
     }
-    
-        @Override
+
+    @Override
     public ArrayList<CitaDTO> listarCita() {
         ArrayList<CitaDTO> a = null;
         try {
@@ -493,15 +487,13 @@ public class Negocio implements INegocioDTO {
         return a;
     }
 
-   
-
     //------------------Metodos de inicio de sesion------------------------------------
     @Override
     public boolean iniciarSesion(String nom, String pas) {
-boolean rta= false;
+        boolean rta = false;
         try {
             return rta = admin.iniciarSesion(nom, pas);
-           
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -514,9 +506,8 @@ boolean rta= false;
     }
 
     @Override
-    public boolean registrarFactura(String tipoPago,int producto, int servicio, int idCliente, int cantidad) {
-        System.out.println("LLEGOOOOOOOOOO");
-          try {
+    public boolean registrarFactura(String tipoPago, int producto, int servicio, int idCliente, int cantidad) {
+        try {
             boolean rta = admin.registrarFactura(tipoPago, producto, servicio, idCliente, cantidad);
             if (rta) {
                 return rta;
@@ -549,6 +540,18 @@ boolean rta= false;
         ArrayList<FacturaDTO> a = null;
         try {
             a = admin.listarFactura();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return a;
+    }
+
+    //consulta fuerte de facturas
+    @Override
+    public ArrayList<FacturaDTO> realizarConsulta(double valorCompra, String inicialNombre, String Mes) {
+        ArrayList<FacturaDTO> a = null;
+        try {
+            a = admin.realizarConsulta(valorCompra, inicialNombre, Mes);
         } catch (Exception e) {
             e.printStackTrace();
         }
